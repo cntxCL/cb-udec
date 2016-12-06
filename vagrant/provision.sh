@@ -8,7 +8,7 @@ ROOTDBPASS="cntxmysql"
 
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $ROOTDBPASS"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $ROOTDBPASS"
-apt-get install -y mysql-server >> /vagrant/vm_build.log 2>&1
+apt-get install -y mysql-server
 
 mysql -uroot -p$ROOTDBPASS -e "CREATE DATABASE $DBNAME"
 mysql -uroot -p$ROOTDBPASS -e "GRANT ALL PRIVILEGES ON $DBNAME.* TO 'vagrant'@'localhost' IDENTIFIED BY ''"
