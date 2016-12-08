@@ -17,11 +17,11 @@ class CreatePersonalTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string("nombre", 100);
-            $table->string("apellido", 100);
-            $table->string("correo", 100);
-            $table->unsignedTinyInteger("cargo");
-            $table->string("telefono", 11);
+            $table->string('nombre', 100);
+            $table->string('apellido', 100);
+            $table->string('correo', 100);
+            $table->unsignedTinyInteger('cargo');
+            $table->string('telefono', 11);
         });
     }
 
