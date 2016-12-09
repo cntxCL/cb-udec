@@ -26,14 +26,4 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-    $('#data-table').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-</script>
-
 @endsection

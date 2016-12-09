@@ -14,7 +14,7 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        return view('proyecto.index', ['items' => Proyecto::all()]);
+        return view('proyectos.index', ['items' => Proyecto::all()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        return view('proyecto.create');
+        return view('proyectos.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class ProyectoController extends Controller
     public function store(ProyectoRequest $request)
     {
         $proyecto = Proyecto::create($request->all());
-        return redirect()->route('proyecto.show', [$proyecto->$id]);
+        return redirect()->route('proyectos.show', [$proyecto->id]);
     }
 
     /**
@@ -47,7 +47,7 @@ class ProyectoController extends Controller
      */
     public function show($id)
     {
-        return view('proyecto.show', ['item' => Proyecto::findOrFail($id)]);
+        return view('proyectos.show', ['item' => Proyecto::findOrFail($id)]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ProyectoController extends Controller
      */
     public function edit($id)
     {
-        return view('proyecto.edit', ['item' => Proyecto::findOrFail($id)]);
+        return view('proyectos.edit', ['item' => Proyecto::findOrFail($id)]);
     }
 
     /**
@@ -72,7 +72,7 @@ class ProyectoController extends Controller
     {
         $proyecto = Proyecto::findOrFail($id);
         $proyecto->update($request->all());
-        return redirect()->route('proyecto.show', [$id]);
+        return redirect()->route('proyectos.show', [$id]);
     }
 
     /**
@@ -85,6 +85,6 @@ class ProyectoController extends Controller
     {
         $proyecto = Proyecto::findOrFail($id);
         $proyecto->delete();
-        return redirect()->route('proyecto.index');
+        return redirect()->route('proyectos.index');
     }
 }

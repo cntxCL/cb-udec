@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource("personal", "PersonalController");
-Route::resource("proyecto", "ProyectoController");
+Route::resource("proyectos", "ProyectoController");

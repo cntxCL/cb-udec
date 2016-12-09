@@ -9,7 +9,7 @@
 		<h1 class="box-title">Editar Proyecto</h1>
 	</div>
 	<div class="box-body">
-		{!! Form::model($item, ['route' => ['proyectos.update', $item->id]]) !!}
+		{!! Form::model($item, ['route' => ['proyectos.update', $item->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
 
 		@include('proyectos._form')
 

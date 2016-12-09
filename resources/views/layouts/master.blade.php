@@ -6,7 +6,7 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>CBUDEC</title>
+		<title>CB-UdeC</title>
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<!-- Bootstrap 3.3.2 -->
 		<link href="{{ asset("/admin-lte/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
 			  page. However, you can choose any other skin. Make sure you
 			  apply the skin class to the body tag so the changes take effect.
 		-->
-		<link href="{{ asset("/admin-lte/dist/css/skins/skin-black.min.css")}}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset("/admin-lte/dist/css/skins/skin-green.min.css")}}" rel="stylesheet" type="text/css" />
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,14 +31,14 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body class="skin-black fixed">
+	<body class="skin-green fixed">
 	<div class="wrapper">
 
 		<!-- Main Header -->
 		<header class="main-header">
 
 			<!-- Logo -->
-			<a href="/" class="logo"><b>CB</b>UDEC</a>
+			<a href="/" class="logo"><b>CB</b>UdeC</a>
 
 			<!-- Header Navbar -->
 			<nav class="navbar navbar-static-top" role="navigation">
@@ -215,10 +215,10 @@
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-					<li class="header">HEADER</li>
+					<li class="header">MENÚS</li>
 					<!-- Optionally, you can add icons to the links -->
-					<li class="active"><a href="#"><span>Link</span></a></li>
-					<li><a href="#"><span>Another Link</span></a></li>
+					<li class="active"><a href="/personal"><span><i class="fa fa-users"></i> Personal</span></a></li>
+					<li><a href="/proyectos"><span><i class="fa fa-folder"></i> Proyectos</span></a></li>
 					<li class="treeview">
 						<a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
@@ -246,6 +246,26 @@
 
 			<!-- Main content -->
 			<section class="content">
+
+				<!-- Errores -->
+				@if (count($errors) > 0)
+				    <div class="alert alert-danger">
+				        <h4><i class="icon fa fa-ban"></i> ¡Oops! Hubieron errores de validación</h4>
+				        <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+				        </ul>
+				    </div>
+				@endif
+
+				<!-- Mensajes de sesión -->
+				@if (Session::has('message'))
+    				<div class="alert alert-{{ Session::get('alert') }}">
+    					<h4>{{ Session::get('title') }}</h4>
+    					<p>{{ Session::get('message') }}</p>
+    				</div>
+				@endif
 
 				<!-- Your Page Content Here -->
 				@yield('content')
@@ -284,5 +304,6 @@
 	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}" type="text/javascript"></script>
 	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}" type="text/javascript"></script>
 	
+	<script src="{{ asset("/js/site.js") }}" type="text/javascript"></script>
 	</body>
 </html>
