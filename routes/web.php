@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource("peronsal", "PersonalController");
+Route::resource("personal", "PersonalController");
 Route::resource("proyecto", "ProyectoController");

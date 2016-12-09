@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Request\PersonalRequest;
+use App\Personal;
 
 class PersonalController extends Controller
 {
@@ -16,7 +17,7 @@ class PersonalController extends Controller
     public function index()
     {
         //
-        return view("personal.index")->withItems(App\Personal::all());
+        return view("personal.index")->withItems(Personal::all());
     }
 
     /**
@@ -39,7 +40,7 @@ class PersonalController extends Controller
     public function store(PersonalRequest $request)
     {
         //
-        $personal = App\Personal::create($request->all());
+        $personal = Personal::create($request->all());
         $personal->save();
     }
 
@@ -52,7 +53,7 @@ class PersonalController extends Controller
     public function show($id)
     {
         //
-        $personal = App\Personal::find($id);
+        $personal = Personal::find($id);
         return view("personal.show")->withItem($personal);
     }
 
@@ -65,7 +66,7 @@ class PersonalController extends Controller
     public function edit($id)
     {
         //
-        $personal = App\Personal::find($id);
+        $personal = Personal::find($id);
         return view("personal.edit")->withItem($personal);
     }
 
@@ -81,7 +82,7 @@ class PersonalController extends Controller
         //
         try
         {
-            $personal = App\Personal::findOrFail($id);
+            $personal = Personal::findOrFail($id);
             $personal->update($request->all());
             $personal->save();
         }catch(ModelNotFoundException $e)
@@ -105,7 +106,7 @@ class PersonalController extends Controller
         //
         try
         {
-            $personal = App\Personal::findOrFail($id);
+            $personal = Personal::findOrFail($id);
             $personal->delete();
         }catch(Exception $e)
         {
