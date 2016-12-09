@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonalTable extends Migration
+class CreateLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreatePersonalTable extends Migration
      */
     public function up()
     {
-        Schema::create('personal', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('nombre', 100);
-            $table->string('apellido', 100);
-            $table->string('correo', 254);
-            $table->unsignedTinyInteger('cargo');
-            $table->string('telefono', 11);
+            $table->string('descripcion', 500);
+            $table->unsignedInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 
@@ -32,6 +30,6 @@ class CreatePersonalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal');
+        Schema::dropIfExists('logs');
     }
 }
