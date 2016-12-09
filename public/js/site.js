@@ -8,4 +8,8 @@ $( document ).ready(function() {
 			"url": "/admin-lte/plugins/datatables/es.js"
 		}
 	});
+
+	$(".datepicker").datepicker({
+		autoclose: true
+	});
 });

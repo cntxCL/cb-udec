@@ -15,7 +15,9 @@
 		<!-- Ionicons -->
 		<link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 		<!-- Datatables -->
-		<link rel="stylesheet" href="{{ asset("admin-lte/plugins/datatables/dataTables.bootstrap.css")}}">
+		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.css")}}">
+		<!-- Datepicker -->
+		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datepicker/datepicker3.css") }}">
 		<!-- Theme style -->
 		<link href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -202,23 +204,14 @@
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control" placeholder="Search..."/>
-		  <span class="input-group-btn">
-			<button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-		  </span>
-					</div>
-				</form>
-				<!-- /.search form -->
-
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-					<li class="header">MENÚS</li>
+					<li class="header">MÓDULOS</li>
 					<!-- Optionally, you can add icons to the links -->
-					<li class="active"><a href="/personal"><span><i class="fa fa-users"></i> Personal</span></a></li>
-					<li><a href="/proyectos"><span><i class="fa fa-folder"></i> Proyectos</span></a></li>
+					<li><a href="/personal"><span><i class="fa fa-users"></i> Personal</span></a></li>
+					<li><a href="/proyectos"><span><i class="fa fa-folder-open-o"></i> Proyectos</span></a></li>
+					<li><a href="/contratos"><span><i class="fa fa-files-o"></i> Contratos</span></a></li>
+					<!--
 					<li class="treeview">
 						<a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
@@ -226,6 +219,7 @@
 							<li><a href="#">Link in level 2</a></li>
 						</ul>
 					</li>
+					-->
 				</ul><!-- /.sidebar-menu -->
 			</section>
 			<!-- /.sidebar -->
@@ -290,20 +284,22 @@
 	<!-- jQuery 2.1.3 -->
 	<script src="{{ asset("/admin-lte/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
 	<!-- Bootstrap 3.3.2 JS -->
-	<script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}"></script>
 	<!-- Datatables -->
 	<script src="{{ asset("/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+	<!-- Datepicker -->
+	<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
 
 	<!-- AdminLTE App -->
-	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
 
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.
 		  Both of these plugins are recommended to enhance the
 		  user experience -->
-	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}" type="text/javascript"></script>
-	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
 	
-	<script src="{{ asset("/js/site.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("/js/site.js") }}"></script>
 	</body>
 </html>

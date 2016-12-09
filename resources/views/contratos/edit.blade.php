@@ -9,9 +9,9 @@
 		<h1 class="box-title">Editar Contrato</h1>
 	</div>
 	<div class="box-body">
-		{!! Form::model($item, ['route' => ['contrato.update', $item->id]]) !!}
+		{!! Form::model($item, ['route' => ['contratos.update', $item->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
 
-		@include('personal._form')
+		@include('contratos._form')
 
 		{!! Form::close() !!}
 	</div>

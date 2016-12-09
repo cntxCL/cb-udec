@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Http\Request\PersonalRequest;
+use App\Http\Requests\PersonalRequest;
 use App\Personal;
 
 class PersonalController extends Controller

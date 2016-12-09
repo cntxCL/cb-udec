@@ -9,7 +9,7 @@
 		<h1 class="box-title">Crear Nuevo Contrato</h1>
 	</div>
 	<div class="box-body">
-		{!! Form::open(['url' => '/contratos']) !!}
+		{!! Form::open(['url' => '/contratos', 'class' => 'form-horizontal']) !!}
 
 		@include('contratos._form')
 
