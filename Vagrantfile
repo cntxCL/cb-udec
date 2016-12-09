@@ -3,7 +3,7 @@
 
 Vagrant.configure(2) do |config|
   config.vm.box = "boxcutter/debian8"
-  config.vm.synced_folder ".", "/vagrant", group: "www-data", :mount_options => ["dmode=777", "fmode=755"]
+  config.vm.synced_folder ".", "/vagrant", group: "www-data", :mount_options => ["dmode=777", "fmode=777"]
   config.vm.provision :shell, path: "vagrant/provision.sh"
   config.vm.provider "vmware_fusion" do |v, override|
     v.name = "cb-udec"
