@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::resource("personal", "PersonalController");
 Route::resource("proyectos", "ProyectoController");
+Route::resource("contratos", "ContratosController");
 Route::resource('logs', 'LogController', ['only' => [
     'index', 'show'
 ]]);

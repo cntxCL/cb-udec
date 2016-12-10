@@ -28,17 +28,18 @@ class PersonalRequest extends FormRequest
                 "nombre" => "required",
                 "apellido" => "required",
                 "correo" => "required|email",
-                "cargo" => "required",
+                "cargo" ="required|integer",
                 "telefono" => "required|between:9,11" 
             ],
             "PUT" => [
                 "nombre" => "required",
                 "apellido" => "required",
                 "correo" => "required|email",
-                "cargo" => "required",
+                "cargo" ="required|integer",
                 "telefono" => "required|between:9,11" 
-            ]
-        ];
+            ],
+            "DELETE" => []
+        ]
         return $rules[$this->method()];
     }
 }
