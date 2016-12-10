@@ -17,3 +17,6 @@ Route::get('/home', function () {
 
 Route::resource("personal", "PersonalController");
 Route::resource("proyectos", "ProyectoController");
+Route::resource('logs', 'LogController', ['only' => [
+    'index', 'show'
+]]);
