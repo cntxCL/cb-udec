@@ -98,7 +98,10 @@
 										<a href="#" class="btn btn-default btn-flat">Perfil</a>
 									</div>
 									<div class="pull-right">
-										<a href="{{ \Auth::logout() }}" class="btn btn-default btn-flat">Cerrar sesión</a>
+										<form action="{{ url('/logout') }}" method="POST">
+											{{ csrf_field() }}
+											<button type="submit" class="btn btn-default btn-flat">Cerrar sesión</button>
+										</form>
 									</div>
 								</li>
 							</ul>
