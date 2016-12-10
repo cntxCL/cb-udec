@@ -12,8 +12,11 @@
 */
 
 Route::get('/',"HomeController@index");
-
 Route::resource("personal", "PersonalController");
 Route::resource("proyectos", "ProyectoController");
-
 Auth::routes();
+Route::resource("contratos", "ContratosController");
+Route::resource('logs', 'LogController', ['only' => [
+    'index', 'show'
+]]);
+Router::post("sync/personal", "SyncController@syncPersonal")

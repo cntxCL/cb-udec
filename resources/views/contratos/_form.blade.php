@@ -22,14 +22,30 @@
 <div class="form-group">
 	<label class="control-label col-md-1">Proyecto</label>
 	<div class="col-md-11">
-		{!! Form::select('proyecto_id', $proyectos, null, ['class' => 'form-control']) !!}
+		<?php
+			$proyectosById = [];
+			foreach ($proyectos as $key => $value) {
+				$proyectosById[] = [
+					$value->id => $value->nombre 
+				];
+			}
+		?>
+		{!! Form::select('proyecto_id', $proyectosById, null, ['class' => 'form-control']) !!}
 	</div>
 </div>
 
 <div class="form-group">
 	<label class="control-label col-md-1">Responsable</label>
 	<div class="col-md-11">
-		{!! Form::select('personal_id', $personal, null, ['class' => 'form-control']) !!}
+		<?php
+			$personalById = [];
+			foreach ($personal as $key => $value) {
+				$personalById[] = [
+					$value->id => $value->nombre . " " . $value->apellido
+				];
+			}
+		?>
+		{!! Form::select('personal_id', $personalById, null, ['class' => 'form-control']) !!}
 	</div>
 </div>
 
