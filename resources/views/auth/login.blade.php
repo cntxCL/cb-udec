@@ -29,7 +29,7 @@
 	</div>
 	<!-- /.login-logo -->
 	<div class="login-box-body">
-		
+
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<h4><i class="icon fa fa-ban"></i> ¡Oops! Hubieron errores de validación</h4>
@@ -64,7 +64,7 @@
 		<!-- /.social-auth-links -->
 
 		<!-- <a href="#">Olvidé mi contraseña</a><br> -->
-		<a href="/register" class="text-center">Registrar un nuevo usuario</a>
+		<!-- <a href="/register" class="text-center">Registrar un nuevo usuario</a> -->
 
 	</div>
 	<!-- /.login-box-body -->
