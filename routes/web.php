@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/',"HomeController@index");
 
 Route::resource("personal", "PersonalController");
 Route::resource("proyectos", "ProyectoController");
+
+Auth::routes();
