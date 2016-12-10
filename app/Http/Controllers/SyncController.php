@@ -16,7 +16,7 @@ class SyncController extends ApiController
     		$personal = Personal::create($value);
     		$personal->save();
     	}
-    	return response()->json(["status" : "OK"])
+    	return response()->json(["status" : "OK"]);
     }
 
     public function deletePersonal(Request $request)
@@ -26,6 +26,6 @@ class SyncController extends ApiController
     		$personal = Personal::find($value);
     		$personal->delete();
     	}
-    	return response()->json(["status" : "OK"])
+    	return response()->json(["status" : "OK"]);
     }
 }
