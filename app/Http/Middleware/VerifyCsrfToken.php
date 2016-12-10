@@ -13,5 +13,8 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         //
+    	"sync/add/personal",
+    	"sync/delete/personal",
+    	"sync/inout/personal"
     ];
 }
