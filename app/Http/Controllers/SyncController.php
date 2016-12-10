@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Personal;
 
-class SyncController extends Controller
+class SyncController extends ApiController
 {
     //
 
