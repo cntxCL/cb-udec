@@ -41,7 +41,7 @@ class PersonalController extends Controller
     {
         //
         $personal = Personal::create($request->all());
-        $personal->save();
+        return redirect()->route('personal.show', [$personal->id]);
     }
 
     /**
@@ -84,7 +84,7 @@ class PersonalController extends Controller
         {
             $personal = Personal::findOrFail($id);
             $personal->update($request->all());
-            $personal->save();
+            return redirect()->route('personal.show', [$personal->id]);
         }catch(ModelNotFoundException $e)
         {
             Session::flash([
@@ -108,6 +108,7 @@ class PersonalController extends Controller
         {
             $personal = Personal::findOrFail($id);
             $personal->delete();
+            return redirect()->route('personal.index');
         }catch(Exception $e)
         {
             Session::flash(["title" => "Error eliminado personal", "message" => "No hemos podido eliminar el personal seleccionado", "alert" => "danger"]);

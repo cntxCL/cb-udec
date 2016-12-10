@@ -9,7 +9,7 @@
 		<h1 class="box-title">Listado de Personal</h1>
 	</div>
 	<div class="box-body">
-		<a href="/personal/create" class="btn btn-primary"><i class="fa fa-file-o"></i> Crear Nueva Persona</a>
+		<a href="/personal/create" class="btn btn-success"><i class="fa fa-file-o"></i> Crear Nueva Persona</a>
 		<hr>
 		<div class="col-md-12 table-responsive">
 			<table class="table" id="data-table">
