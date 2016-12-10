@@ -9,6 +9,8 @@
 		<h1 class="box-title">Listado de Contratos</h1>
 	</div>
 	<div class="box-body">
+		<a href="/contratos/create" class="btn btn-success"><i class="fa fa-file-o"></i> Crear Nuevo Contrato</a>
+		<hr>
 		<div class="col-md-12 table-responsive">
 			<table class="table" id="data-table">
 				<thead>
