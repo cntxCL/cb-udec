@@ -19,4 +19,4 @@ Route::resource("contratos", "ContratosController");
 Route::resource('logs', 'LogController', ['only' => [
     'index', 'show'
 ]]);
-Router::post("sync/personal", "SyncController@syncPersonal")
+Route::post("sync/personal", "SyncController@syncPersonal");
