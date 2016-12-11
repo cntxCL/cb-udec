@@ -14,7 +14,7 @@ class SyncController extends ApiController
     public function addPersonal(Request $request)
     {
     	$data = $request->json()->all();
-    	foreach ($data["data"] as $key => $value) {
+    	foreach ($data as $key => $value) {
     		$personal = Personal::create($value);
     		$personal->save();
     	}
@@ -24,7 +24,7 @@ class SyncController extends ApiController
     public function deletePersonal(Request $request)
     {
     	$data = $request->json()->all();
-    	foreach ($data["data"] as $key => $value) {
+    	foreach ($data as $key => $value) {
     		$personal = Personal::where("reloj_id", $value)->first();
     		$personal->delete();
     	}
@@ -34,7 +34,7 @@ class SyncController extends ApiController
     public function inoutPersonal(Request $request)
     {
     	$data = $request->json()->all();
-    	foreach ($data["data"] as $key => $value) {
+    	foreach ($data as $key => $value) {
     		$personal = Personal::where("reloj_id", $value["userid"])->first();
             if($personal == null) continue;
             $checkData = [
