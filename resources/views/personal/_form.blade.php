@@ -9,20 +9,20 @@
 	</div>
 </div>
 
-<div class="form-group">
+{{-- <div class="form-group">
 	<label class="control-label col-md-1">Correo</label>
 	<div class="col-md-5">
 		{!! Form::email('correo', null, ['placeholder' => 'Correo Electrónico', 'class' => 'form-control']) !!}
 	</div>
+</div> --}}
+
+<div class="form-group">
 	<label class="control-label col-md-1">Teléfono</label>
 	<div class="col-md-5">
 		{!! Form::text('telefono', null, ['placeholder' => 'Teléfono', 'class' => 'form-control']) !!}
 	</div>
-</div>
-
-<div class="form-group">
 	<label class="control-label col-md-1">Cargo</label>
-	<div class="col-md-11">
+	<div class="col-md-5">
 		{!! Form::text('cargo', null, ['placeholder' => 'Cargo', 'class' => 'form-control']) !!}
 	</div>
 </div>

@@ -22,7 +22,7 @@ class LogsRecorder
     {
         if($reponse->status() != 200) return;
 
-        $user = Auth::check() ? Auth::user()->nombre : "Usuario desconocido";
+        $user = Auth::check() ? Auth::user()->personal->nombre : "Usuario desconocido";
         $controller = $request->route()->getController();
         $action = $request->route()->getAction();
 

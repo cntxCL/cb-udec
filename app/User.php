@@ -27,5 +27,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+    public function personal()
+    {
+        return $this->belongsTo('App\Personal','personal_id');
+    }
+
+    public function logs()
+    {
+        return $this->hasMany('App\Log');
+    }
+
 }

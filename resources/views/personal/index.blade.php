@@ -18,7 +18,7 @@
 						<th>ID</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
-						<th>Correo</th>
+{{-- 						<th>Correo</th> --}}
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -28,7 +28,7 @@
 						<td>{{ $item->id }}</td>
 						<td>{{ $item->nombre }}</td>
 						<td>{{ $item->apellido }}</td>
-						<td>{{ $item->correo }}</td>
+{{-- 						<td>{{ $item->correo }}</td> --}}
 						<td>
 							<a href="{{ route('personal.show', [$item->id]) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span></a>
 							<a href="{{ route('personal.edit', [$item->id]) }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
