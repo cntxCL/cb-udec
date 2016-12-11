@@ -26,6 +26,7 @@ class SyncController extends ApiController
     	$data = $request->json()->all();
     	foreach ($data as $key => $value) {
     		$personal = Personal::where("reloj_id", $value)->first();
+            if($personal == null) continue;
     		$personal->delete();
     	}
     	return response()->json(["status" => "OK"]);
