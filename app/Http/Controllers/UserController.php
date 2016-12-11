@@ -46,7 +46,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-         return view('users.show', ['item' => User::findOrFail($id)]);
+        $item = User::with('logs')->findOrFail($id);
+        return view('users.show', compact('item'));
     }
 
     /**

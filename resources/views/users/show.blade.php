@@ -33,7 +33,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@if(count($item->log) > 0)
+					@if(count($item->logs) > 0)
 						@foreach($item->logs as $log)
 							<tr>
 								<td>{{ $log->id }}</td>
