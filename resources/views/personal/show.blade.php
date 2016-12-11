@@ -19,14 +19,12 @@
 						<td>{{ $item->apellido }}</td>
 					</tr>
 					<tr>
-						<th>Correo</th>
-						<td>{{ $item->correo }}</td>
+{{-- 						<th>Correo</th>
+						<td>{{ $item->correo }}</td> --}}
 						<th>Teléfono</th>
 						<td>{{ $item->telefono }}</td>
-					</tr>
-					<tr>
 						<th>Cargo</th>
-						<td colspan="3">{{ $item->cargo }}</td>
+						<td>{{ $item->cargo }}</td>
 					</tr>
 				</tbody>
 			</table>

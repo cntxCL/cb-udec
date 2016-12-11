@@ -27,6 +27,8 @@ class AddRelojIdOnPersonal extends Migration
     public function down()
     {
         //
-        $table->dropColumn("reloj_id");
+        Schema::table('personal', function (Blueprint $table) {
+            $table->dropColumn("reloj_id");
+        });
     }
 }

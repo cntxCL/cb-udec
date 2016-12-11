@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
+use App\Log;
 
 class LogsRecorder
 {
@@ -20,15 +22,12 @@ class LogsRecorder
 
     public function terminate($request, $response)
     {
-        if($reponse->status() != 200) return;
+        $descripcion = $request->route()->getName();
+        $descripcion .= ' (status ' . $response->status() . ')';
 
-        $user = Auth::check() ? Auth::user()->nombre : "Usuario desconocido";
-        $controller = $request->route()->getController();
-        $action = $request->route()->getAction();
-
-        Log::create([
-            'descripcion' => $user . ' ' . $controller . '.' . $action,
-            'user_id' => Auth::check() ? Auth::id() : 1
+        $log = Log::create([
+            'descripcion' => $descripcion,
+            'user_id' => $user = Auth::id(),
         ]);
     }
 }

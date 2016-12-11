@@ -81,14 +81,14 @@
 								<!-- The user image in the navbar-->
 								<img src="{{ asset("user.png") }}" class="user-image" alt="User Image"/>
 								<!-- hidden-xs hides the username on small devices so only the image appears. -->
-								<span class="hidden-xs">Usuario</span>
+								<span class="hidden-xs">{{ Auth::user()->personal->nombre }}</span>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- The user image in the menu -->
 								<li class="user-header">
 									<img src="{{ asset("user.png") }}" class="img-circle" alt="User Image" />
 									<p>
-										Usuario
+										{{ Auth::user()->personal->nombre }}
 										<small>CBUdeC</small>
 									</p>
 								</li>
@@ -122,7 +122,7 @@
 						<img src="{{ asset("user.png") }}" class="img-circle" alt="User Image" />
 					</div>
 					<div class="pull-left info">
-						<p>Usuario</p>
+						<p>{{ Auth::user()->personal->nombre }}</p>
 						<!-- Status -->
 						<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 					</div>
@@ -132,6 +132,7 @@
 				<ul class="sidebar-menu">
 					<li class="header">MÓDULOS</li>
 					<!-- Optionally, you can add icons to the links -->
+					<li><a href="/users"><span><i class="fa fa-user"></i> Usuarios</span></a></li>
 					<li><a href="/personal"><span><i class="fa fa-users"></i> Personal</span></a></li>
 					<li><a href="/proyectos"><span><i class="fa fa-folder-open-o"></i> Proyectos</span></a></li>
 					<li><a href="/contratos"><span><i class="fa fa-files-o"></i> Contratos</span></a></li>
