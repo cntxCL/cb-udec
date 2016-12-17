@@ -18,6 +18,8 @@
 		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.css")}}">
 		<!-- Datepicker -->
 		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datepicker/datepicker3.css") }}">
+		<!-- Select2 -->
+		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/select2/select2.min.css") }}">
 		<!-- Theme style -->
 		<link href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -215,7 +217,8 @@
 	<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
 	<!-- Datepicker -->
 	<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
-
+	<!-- Select2 -->
+	<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
 	<!-- AdminLTE App -->
 	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
 

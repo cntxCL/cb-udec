@@ -23,7 +23,12 @@
 	</div>
 	<label class="control-label col-md-1">Cargo</label>
 	<div class="col-md-5">
-		{!! Form::text('cargo', null, ['placeholder' => 'Cargo', 'class' => 'form-control']) !!}
+		<select class="form-control" name="cargo" id="cargos">
+			@if(isset($item))
+				<option value="{{$item->cargo}}" selected="selected">{{ $item->cargo }}</option>
+			@endif
+		</select>
+{{-- 		{!! Form::select('cargo', null, null, ['placeholder' => 'Cargo', 'class' => 'form-control select2']) !!} --}}
 	</div>
 </div>
 

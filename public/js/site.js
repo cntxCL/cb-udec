@@ -12,4 +12,23 @@ $( document ).ready(function() {
 	$(".datepicker").datepicker({
 		autoclose: true
 	});
+
+	$(".select2").select2();
+
+	// PERSONAL
+	$("#cargos").select2({
+		placeholder: 'Seleccione un ítem',
+		ajax: {
+			url: '/json/cargos',
+			dataType: 'json',
+			delay: 250,
+			processResults: function (data) {
+				return {
+					results: data
+				};
+			},
+			cache: true
+		}
+	});
+
 });
