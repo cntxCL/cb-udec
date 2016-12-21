@@ -23,3 +23,4 @@ Route::resource("users", "UserController");
 Route::post("sync/add/personal", "SyncController@addPersonal");
 Route::post("sync/delete/personal", "SyncController@deletePersonal");
 Route::post("sync/inout/personal", "SyncController@inoutPersonal");
+Route::get("json/cargos", "PersonalController@getCargos");

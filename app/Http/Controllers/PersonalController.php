@@ -111,7 +111,24 @@ class PersonalController extends Controller
             return redirect()->route('personal.index');
         }catch(Exception $e)
         {
-            Session::flash(["title" => "Error eliminado personal", "message" => "No hemos podido eliminar el personal seleccionado", "alert" => "danger"]);
+            Session::flash(["title" => "Error eliminando personal", "message" => "No hemos podido eliminar el personal seleccionado", "alert" => "danger"]);
         }
     }
+
+    /**
+     * Obtiene los cargos del personal
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCargos()
+    {
+        $cargos = \DB::table('personal')->distinct()->pluck('cargo');
+        $json = [];
+        foreach ($cargos as $cargo) {
+            $json[] = ['id' => $cargo, 'text' => $cargo];
+        }
+
+        return $json;
+    }
+
 }
