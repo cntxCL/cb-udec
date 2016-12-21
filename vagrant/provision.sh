@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+timedatectl set-timezone America/Santiago
 apt-get update
 
 # MySQL
