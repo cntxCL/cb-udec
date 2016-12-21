@@ -27,7 +27,7 @@ class LogsRecorder
 
         $log = Log::create([
             'descripcion' => $descripcion,
-            'user_id' => $user = Auth::id(),
+            'user_id' => Auth::id(),
         ]);
     }
 }
