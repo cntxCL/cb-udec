@@ -15,9 +15,6 @@ class LoginListener
      */
     public function handle(Login $event)
     {
-        print_r($event);
-        exit(1);
-
         $log = Log::create([
             'descripcion' => 'logged in',
             'user_id' => $event->user->id,
