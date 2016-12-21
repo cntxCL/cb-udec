@@ -27,8 +27,8 @@
 				@foreach($items as $item)
 					<tr>
 						<td>{{ $item->id }}</td>
-						<td>{{ $item->inicio }}</td>
-						<td>{{ $item->fin }}</td>
+						<td>{{ date('d-m-Y', strtotime($item->inicio)) }}</td>
+						<td>{{ date('d-m-Y', strtotime($item->fin)) }}</td>
 						<td>{{ $item->proyecto->nombre }}</td>
 						<td>{{ $item->personal->nombre}} {{ $item->personal->apellido }} </td>
 						<td>

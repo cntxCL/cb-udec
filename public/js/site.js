@@ -17,7 +17,20 @@ $( document ).ready(function() {
 
 	// PERSONAL
 	$("#cargos").select2({
+		tags: true,
 		placeholder: 'Seleccione un ítem',
+		createSearchChoice: function(term, data) {
+			if ($(data).filter(function() {
+				return this.text.localeCompare(term) === 0;
+			}).length === 0) {
+				return {
+					id: term,
+					text: term
+				};
+			}
+		},
+		multiple: true,
+		maximumSelectionLength: 1,
 		ajax: {
 			url: '/json/cargos',
 			dataType: 'json',
