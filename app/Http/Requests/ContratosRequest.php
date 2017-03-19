@@ -25,16 +25,16 @@ class ContratosRequest extends FormRequest
     {
         $rules = [
             "POST" => [
-                "inicio" => "required|date_format:m/d/Y",
-                "fin" => "required|date_format:m/d/Y|after:inicio",
+                "inicio" => "required|date_format:d/m/Y",
+                "fin" => "required|date_format:d/m/Y|after:inicio",
                 "personal_id" => "required|exists:personal,id",
                 "proyecto_id" => "required|exists:proyectos,id",
             ],
             "PUT" => [
-                "inicio" => "required|date_format:m/d/Y",
-                "fin" => "required|date_format:m/d/Y|after:inicio",
-                "personal_id" => "required|exists:personal",
-                "proyecto_id" => "required|exists:proyectos",
+                "inicio" => "required|date_format:d/m/Y",
+                "fin" => "required|date_format:d/m/Y|after:inicio",
+                "personal_id" => "required|exists:personal,id",
+                "proyecto_id" => "required|exists:proyectos,id",
             ]
         ];
         return $rules[$this->method()];

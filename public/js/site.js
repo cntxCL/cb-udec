@@ -10,7 +10,10 @@ $( document ).ready(function() {
 	});
 
 	$(".datepicker").datepicker({
-		autoclose: true
+		autoclose: true,
+		language: 'es',
+		format: 'dd/mm/yyyy',
+		weekStart: '1'
 	});
 
 	$(".select2").select2();

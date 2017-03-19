@@ -28,10 +28,15 @@ class ContratosController extends Controller
      */
     public function create()
     {
-        //
-        return view("contratos.create")
-            ->withProyectos(Proyecto::all())
-            ->withPersonal(Personal::all());
+        $item = new Contrato;
+        $item->inicio = date('d/m/Y');
+        $item->fin = date('d/m/Y');
+        $proyectos = Proyecto::pluck('nombre','id');
+        $personals = Personal::all();
+        foreach ($personals as $persona) {
+            $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
+        }
+        return view("contratos.create", compact('proyectos','personal','item'));
     }
 
     /**
@@ -70,11 +75,13 @@ class ContratosController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view("contratos.edit")
-            ->withItem(Contrato::find($id))
-            ->withProyectos(Proyecto::all())
-            ->withPersonal(Personal::all());
+        $proyectos = Proyecto::pluck('nombre','id');
+        $personals = Personal::all();
+        $item = Contrato::find($id);
+        foreach ($personals as $persona) {
+            $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
+        }
+        return view("contratos.edit", compact('proyectos','personal','item'));
 
     }
 
@@ -87,7 +94,7 @@ class ContratosController extends Controller
      */
     public function update(ContratosRequest $request, $id)
     {
-        //
+
         try
         {
             $contrato = Contrato::findOrFail($id);

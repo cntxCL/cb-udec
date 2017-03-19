@@ -24,8 +24,8 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-	<div class="login-logo">
-		<b>CB</b>UdeC
+	<div class="login-logo" style="background-color: #1A6F43">
+		<img src="cb_udec.png">
 	</div>
 	<!-- /.login-logo -->
 	<div class="login-box-body">
@@ -56,7 +56,7 @@
 			<div class="row">
 				<!-- /.col -->
 				<div class="col-xs-12">
-					<button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar sesión</button>
+					<button type="submit" class="btn btn-success btn-block btn-flat">Iniciar sesión</button>
 				</div>
 				<!-- /.col -->
 			</div>

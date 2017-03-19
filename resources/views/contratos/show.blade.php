@@ -14,11 +14,11 @@
 				<tbody>
 					<tr>
 						<th width="1em">Fecha Inicio</th>
-						<td>{{ date('d-m-Y', strtotime($item->inicio)) }}</td>
+						<td>{{ $item->inicio->format('d/m/Y') }}</td>
 					</tr>
 					<tr>
 						<th>Fecha Fin</th>
-						<td>{{ date('d-m-Y', strtotime($item->fin)) }}</td>
+						<td>{{ $item->fin->format('d/m/Y') }}</td>
 					</tr>
 					<tr>
 						<th>Proyecto</th>

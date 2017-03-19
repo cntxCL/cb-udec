@@ -17,14 +17,14 @@ class Contrato extends Model
 
     public function setInicioAttribute($value)
     {
-    	$this->attributes["inicio"] = Carbon::createFromFormat('m/d/Y', $value); 
+    	$this->attributes["inicio"] = Carbon::createFromFormat('d/m/Y', $value); 
     }
 
     public function setFinAttribute($value)
     {
-    	$this->attributes["fin"] = Carbon::createFromFormat('m/d/Y', $value); 
+    	$this->attributes["fin"] = Carbon::createFromFormat('d/m/Y', $value); 
     }
-
+    
     public function Proyecto()
     {
     	return $this->belongsTo("App\Proyecto");

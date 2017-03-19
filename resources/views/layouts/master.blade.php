@@ -97,12 +97,12 @@
 								<!-- Menu Footer-->
 								<li class="user-footer">
 									<div class="pull-left">
-										<a href="#" class="btn btn-default btn-flat">Perfil</a>
+										<a href="/users/{{ Auth::user()->id }}" class="btn btn-default btn-flat">Perfil</a>
 									</div>
 									<div class="pull-right">
 										<form action="{{ url('/logout') }}" method="POST">
 											{{ csrf_field() }}
-											<button type="submit" class="btn btn-default btn-flat">Cerrar sesión</button>
+											<button type="submit" class="btn btn-danger btn-flat">Cerrar sesión</button>
 										</form>
 									</div>
 								</li>
@@ -217,6 +217,7 @@
 	<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
 	<!-- Datepicker -->
 	<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
 	<!-- Select2 -->
 	<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
 	<!-- AdminLTE App -->

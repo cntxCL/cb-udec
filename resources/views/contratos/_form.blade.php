@@ -5,7 +5,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-calendar"></i>
 			</div>
-			{!! Form::text('inicio', null, ['placeholder' => 'Fecha Inicio', 'class' => 'form-control pull-right datepicker']) !!}
+			{!! Form::text('inicio', $item->inicio->format('d/m/Y'), ['placeholder' => 'Fecha Inicio', 'class' => 'form-control pull-right datepicker']) !!}
 		</div>
 	</div>
 	<label class="control-label col-md-1">Fin</label>
@@ -14,7 +14,7 @@
 			<div class="input-group-addon">
 				<i class="fa fa-calendar"></i>
 			</div>
-			{!! Form::text('fin', null, ['placeholder' => 'Fecha Fin', 'class' => 'form-control pull-right datepicker']) !!}
+			{!! Form::text('fin', $item->fin->format('d/m/Y'), ['placeholder' => 'Fecha Fin', 'class' => 'form-control pull-right datepicker']) !!}
 		</div>
 	</div>
 </div>
@@ -22,30 +22,14 @@
 <div class="form-group">
 	<label class="control-label col-md-1">Proyecto</label>
 	<div class="col-md-11">
-		<?php
-			$proyectosById = [];
-			foreach ($proyectos as $key => $value) {
-				$proyectosById[] = [
-					$value->id => $value->nombre 
-				];
-			}
-		?>
-		{!! Form::select('proyecto_id', $proyectosById, null, ['class' => 'form-control']) !!}
+		{!! Form::select('proyecto_id', $proyectos, null, ['class' => 'form-control select2']) !!}
 	</div>
 </div>
 
 <div class="form-group">
 	<label class="control-label col-md-1">Responsable</label>
 	<div class="col-md-11">
-		<?php
-			$personalById = [];
-			foreach ($personal as $key => $value) {
-				$personalById[] = [
-					$value->id => $value->nombre . " " . $value->apellido
-				];
-			}
-		?>
-		{!! Form::select('personal_id', $personalById, null, ['class' => 'form-control']) !!}
+		{!! Form::select('personal_id', $personal, null, ['class' => 'form-control select2']) !!}
 	</div>
 </div>
 
