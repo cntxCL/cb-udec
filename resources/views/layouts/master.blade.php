@@ -138,6 +138,8 @@
 					<li><a href="/personal"><span><i class="fa fa-users"></i> Personal</span></a></li>
 					<li><a href="/proyectos"><span><i class="fa fa-folder-open-o"></i> Proyectos</span></a></li>
 					<li><a href="/contratos"><span><i class="fa fa-files-o"></i> Contratos</span></a></li>
+					<li><a href="/salas"><span><i class="fa fa-cubes"></i> Salas</span></a></li>
+					<li><a href="/reservas"><span><i class="fa fa-calendar"></i> Reservas</span></a></li>
 					<!--
 					<li class="treeview">
 						<a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>

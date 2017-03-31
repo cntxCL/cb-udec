@@ -16,6 +16,8 @@ Route::resource("personal", "PersonalController");
 Route::resource("proyectos", "ProyectoController");
 Auth::routes();
 Route::resource("contratos", "ContratosController");
+Route::resource("salas", "SalaController");
+Route::resource("reservas", "ReservaController");
 Route::resource('logs', 'LogController', ['only' => [
     'index', 'show'
 ]]);
