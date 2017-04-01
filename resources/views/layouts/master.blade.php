@@ -20,6 +20,8 @@
 		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datepicker/datepicker3.css") }}">
 		<!-- Select2 -->
 		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/select2/select2.min.css") }}">
+		<!-- fullCalendar -->
+		<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.css") }}">
 		<!-- Theme style -->
 		<link href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -222,6 +224,8 @@
 	<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
 	<!-- Select2 -->
 	<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
+	<!-- fullCalendar -->
+	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.js") }}"></script>
 	<!-- AdminLTE App -->
 	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
 
