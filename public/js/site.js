@@ -55,16 +55,21 @@ $( document ).ready(function() {
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay,listWeek'
 		},
+		defaultView : 'agendaWeek',
 		minTime : '08:00',
 		maxTime : '21:30',
 		slotLabelInterval : '00:30',
 		slotLabelFormat: 'hh:mm', 
 		selectable : true,
-		selectMinDistance : 1,
 		select : function(start, end, jsEvent, view)
 		{
 			if(view.type != "month")
-				alert(start);
+			{
+				$("#reservaStart").text(start.format("DD/MM/YYYY HH:mm"));
+				$("#reservaEnd").text(end.format("DD/MM/YYYY HH:mm"));
+				$("#reservaSala").text("select sala");
+				$("#createReserva").modal('show');
+			}
 		}
 	});
 
