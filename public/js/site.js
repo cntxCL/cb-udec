@@ -47,4 +47,25 @@ $( document ).ready(function() {
 		}
 	});
 
+	$('#calendar').fullCalendar({
+		locale: 'es',
+	    fistDay : 1,
+	    header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay,listWeek'
+		},
+		minTime : '08:00',
+		maxTime : '21:30',
+		slotLabelInterval : '00:30',
+		slotLabelFormat: 'hh:mm', 
+		selectable : true,
+		selectMinDistance : 1,
+		select : function(start, end, jsEvent, view)
+		{
+			if(view.type != "month")
+				alert(start);
+		}
+	});
+
 });
