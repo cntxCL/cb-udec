@@ -64,6 +64,7 @@ $( document ).ready(function() {
 		slotLabelInterval : '00:30',
 		slotLabelFormat: 'hh:mm', 
 		selectable : true,
+		eventLimit: 1,
 		select : function(start, end, jsEvent, view)
 		{
 			if(view.type != "month")
@@ -73,6 +74,10 @@ $( document ).ready(function() {
 				$("#reservaSala").text("select sala");
 				$("#createReserva").modal('show');
 			}
+		},
+		eventClick : function(calEvent, jsEvent, view){
+			window.open("reservas/" + calEvent.id + "/edit", "_blank");
+			return false;
 		}
 	});
 
@@ -94,8 +99,8 @@ $( document ).ready(function() {
 				alert(respose.content);
 			}else{
 				$("#calendar").fullCalendar('renderEvent', {
-					id : content.id,
-					title : "reserva",
+					id : response.content.id,
+					title : response.content.personal,
 					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
 					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm')
 				});
@@ -109,7 +114,20 @@ $( document ).ready(function() {
 	$("#btnCargarReservas").click(function(){
 		$("#calendar").show();
 		selectedSalaId = $("#selectSala").val();
-		//ajax para pedir reservas y cargarlas al calendario
+		//ajax para pedir reservas y cargarlas al 
+		$("#calendar").fullCalendar('removeEvents');
+		$.get("sala/" + selectedSalaId + "/reservas", function(data){
+			var events = []
+			for(var index in data.content){
+				events.push({
+					id : data.content[index].id,
+					title : data.content[index].personal,
+					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
+					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss')
+				});
+			}
+			$("#calendar").fullCalendar('addEventSource', events);
+		});
 	});
 
 });

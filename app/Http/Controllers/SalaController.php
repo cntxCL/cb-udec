@@ -85,7 +85,16 @@ class SalaController extends Controller
     public function getReservas($id){
         try{
             $reservas = \App\Salas::find($id)->reservas();
-            return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservas->get()]);
+            $reservasResponse = [];
+            foreach ($reservas->get() as $reserva) {
+                $reservasResponse[] = [
+                    "inicio" => $reserva->inicio,
+                    "fin" => $reserva->fin,
+                    "personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+                    "id" => $reserva->id
+                ];
+            }
+            return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservasResponse ]);
         }
         catch(Exception $e)
         {

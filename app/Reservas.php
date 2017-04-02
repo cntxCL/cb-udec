@@ -21,16 +21,7 @@ class Reservas extends Model
     {
     	$this->attributes["fin"] = Carbon::createFromFormat('d/m/Y H:i', $value); 
     }
-
-    public function getInicioAttribute()
-    {
-        return $this->attributes['inicio']->format('d/m/Y H:i');
-    }
-
-    public function getFinAttribute(){
-        return $this->attributes['fin']->format('d/m/Y H:i');
-    }
-
+    
     public function Personal(){
     	return $this->belongsTo("App\Personal");
     }

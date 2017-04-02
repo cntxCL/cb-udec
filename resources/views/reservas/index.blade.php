@@ -14,7 +14,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Creación de Reserca</h4>
+        <h4 class="modal-title">Creación de Reserva</h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal">
@@ -55,7 +55,7 @@
 			<form class="col-md-12 form-inline">
 				<div class="form-group">
 	        		<label>Seleccione Sala:</label>
-	        		<select class="form-control" id="selectSala" style="min-width: 200px"></select>
+	        		{!! Form::select('sala_id', $salas, null, ['class' => 'form-control col-md-10 select2', 'id' => "selectSala"]) !!}
 	        	</div>
 	        	<button class="btn btn-primary" type="button" id="btnCargarReservas">Cargar Reservas</button>
 			</form>

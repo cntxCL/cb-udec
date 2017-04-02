@@ -37,7 +37,13 @@ class ReservaController extends Controller
         try{
             $reserva = Reservas::create($request->all());
             $reserva->save();
-            return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reserva]);
+            $reservaResponse = [
+            	"inicio" => $reserva->inicio->format("d/m/Y H:i"),
+            	"fin" => $reserva->fin->format("d/m/Y H:i"),
+            	"personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+            	"id" => $reserva->id
+            ];
+            return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservaResponse]);
         }
         catch(Exception $e)
         {
