@@ -19,7 +19,7 @@
       <div class="modal-body">
         <form class="form-horizontal">
        		 <div class="form-group">
-        		<label class="control-label col-md-2">Inicio:</label>
+        		<label class="control-label col-md-2">Sala:</label>
         		<p class="form-control-static col-md-10" id="reservaSala"></p>
         	</div>
         	<div class="form-group">
@@ -31,14 +31,14 @@
         		<p class="form-control-static col-md-10" id="reservaEnd"></p>
         	</div>
         	<div class="form-group">
-				<label class="control-label col-md-2">Responsable</label>
+				<label class="control-label col-md-2">Responsable:</label>
 				{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaResponsable"]) !!}
 			</div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" id="saveReservaBtn">Guardar</button>
       </div>
     </div>
   </div>
@@ -51,6 +51,15 @@
 		<h1 class="box-title">Calendario Reservas</h1>
 	</div>
 	<div class="box-body">
+		<div class="row">
+			<form class="col-md-12 form-inline">
+				<div class="form-group">
+	        		<label>Seleccione Sala:</label>
+	        		<select class="form-control" id="selectSala" style="min-width: 200px"></select>
+	        	</div>
+	        	<button class="btn btn-primary" type="button" id="btnCargarReservas">Cargar Reservas</button>
+			</form>
+		</div>
 		<div id="calendar"></div>
 	</div>
 </div>
