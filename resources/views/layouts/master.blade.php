@@ -141,6 +141,7 @@
 					<li><a href="/proyectos"><span><i class="fa fa-folder-open-o"></i> Proyectos</span></a></li>
 					<li><a href="/contratos"><span><i class="fa fa-files-o"></i> Contratos</span></a></li>
 					<li><a href="/salas"><span><i class="fa fa-cubes"></i> Salas</span></a></li>
+					<li><a href="/motivos"><span><i class="fa fa-cubes"></i> Motivos</span></a></li>
 					<li><a href="/reservas"><span><i class="fa fa-calendar"></i> Reservas</span></a></li>
 					<!--
 					<li class="treeview">
@@ -239,7 +240,7 @@
 		  user experience -->
 	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
-	
+
 	<script src="{{ asset("/js/site.js") }}"></script>
 	</body>
 </html>
