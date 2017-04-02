@@ -53,8 +53,14 @@ class ReservaController extends Controller
         try
         {
             $reserva = Reservas::findOrFail($id);
-            $reserva->update($request->all());
-            return redirect()->route('reservas.show', [$reserva->id]);
+            if($request->deleteFlag){
+                $reserva->delete();
+            }
+            if($request->acceptFlag){
+                $reserva->aceptado = true;
+                $reserva->save();
+            }
+            return view("reservas.show");
         }catch(ModelNotFoundException $e)
         {
             Session::flash([

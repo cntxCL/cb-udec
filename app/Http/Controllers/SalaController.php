@@ -91,7 +91,8 @@ class SalaController extends Controller
                     "inicio" => $reserva->inicio,
                     "fin" => $reserva->fin,
                     "personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
-                    "id" => $reserva->id
+                    "id" => $reserva->id,
+                    "aceptado" => $reserva->aceptado
                 ];
             }
             return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservasResponse ]);

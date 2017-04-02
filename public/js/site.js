@@ -86,7 +86,12 @@ $( document ).ready(function() {
 			}
 		},
 		eventClick : function(calEvent, jsEvent, view){
-			window.open("reservas/" + calEvent.id + "/edit", "_blank");
+			var windowDet = window.open("reservas/" + calEvent.id + "/edit", "_blank");
+			windowDet.onunload = function(e){
+				if(e.URL != "about:blank"){
+					$("#btnCargarReservas").click();	
+				}
+			}
 			return false;
 		}
 	});
@@ -112,7 +117,8 @@ $( document ).ready(function() {
 					id : response.content.id,
 					title : response.content.personal,
 					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
-					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm')
+					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm'),
+					backgroundColor : "#00c0ef"
 				});
 			}
 		}).fail(function(response){
@@ -134,11 +140,22 @@ $( document ).ready(function() {
 					id : data.content[index].id,
 					title : data.content[index].personal,
 					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
-					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss')
+					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss'),
+					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#00c0ef"
 				});
 			}
 			$("#calendar").fullCalendar('addEventSource', events);
 		});
 	});
+
+	$("#btnAcceptReserva").click(function(){
+		$("#acceptFlag").val("1");
+		$("#formEditReserva").submit();
+	});
+
+	$("#btnEliminarReserva").click(function(){
+		$("#deleteFlag").val("1");
+		$("#formEditReserva").submit();
+	})
 
 });
