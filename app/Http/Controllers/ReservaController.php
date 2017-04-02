@@ -71,17 +71,8 @@ class ReservaController extends Controller
 
     public function edit($id)
     {
-        $personals = \App\Personal::all();
-        $salas_list = \App\Salas::all();
-        $personal = [];
-        foreach ($personals as $persona) {
-            $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
-        }
-        $salas = [];
-        foreach ($salas_list as $sala) {
-            $salas[$sala->id] = $sala->nombre;
-        }
-        return view("reservas.edit", compact('salas','personal'));
+        $reserva = Reservas::find($id);
+        return view("reservas.edit")->withItem($reserva);
 
     }
 

@@ -32,11 +32,6 @@ class ReservasRequest extends FormRequest
                 "motivo_id" => "required|exists:motivo,id"
             ],
             "PUT" => [
-                "inicio" => "required|date_format:d/m/Y H:i",
-                "fin" => "required|date_format:d/m/Y H:i|after:inicio",
-                "personal_id" => "required|exists:personal,id",
-                "sala_id" => "required|exists:proyectos,id",
-                "motivo_id" => "required|exists:motivo,id",
             ]
         ];
         return $rules[$this->method()];
