@@ -79,6 +79,9 @@ $( document ).ready(function() {
 				$("#reservaSala").text($("#selectSala option[value='"+selectedSalaId+"']").text());
 				$("#createReserva").modal('show');
 			}else{
+				if(view.type == "month"){
+					return;
+				}
 				if(selectedSalaId == -1){
 					alert("Debe seleccionar y cargar reservas de una sala");
 					return;
@@ -121,7 +124,7 @@ $( document ).ready(function() {
 					title : response.content.personal + "\n " + response.content.motivo ,
 					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
 					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm'),
-					backgroundColor : "#00c0ef"
+					backgroundColor : "#7e8490"
 				});
 			}
 		}).fail(function(response){
@@ -144,7 +147,7 @@ $( document ).ready(function() {
 					title : data.content[index].personal + "\n " + data.content[index].motivo,
 					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
 					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss'),
-					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#00c0ef"
+					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#7e8490"
 				});
 			}
 			$("#calendar").fullCalendar('addEventSource', events);
