@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 
 	var selectedSalaId = -1;
+	var maxBlocksAllowed = 0;
 
 	$('#data-table').DataTable({
 		"paging": true,
@@ -65,18 +66,36 @@ $( document ).ready(function() {
 		slotLabelFormat: 'hh:mm', 
 		selectable : true,
 		eventLimit: 1,
+		selectOverlap : false,
 		select : function(start, end, jsEvent, view)
 		{
-			if(view.type != "month")
+
+			var maxTimeSpan = moment.duration(maxBlocksAllowed * 30, 'minutes');
+			var allowedEnd = moment(start).add(maxTimeSpan);
+			if(view.type != "month" && selectedSalaId != -1 && end.isSameOrBefore(allowedEnd))
 			{
 				$("#reservaStart").text(start.format("DD/MM/YYYY HH:mm"));
 				$("#reservaEnd").text(end.format("DD/MM/YYYY HH:mm"));
-				$("#reservaSala").text("select sala");
+				$("#reservaSala").text($("#selectSala option[value='"+selectedSalaId+"']").text());
 				$("#createReserva").modal('show');
+			}else{
+				if(selectedSalaId == -1){
+					alert("Debe seleccionar y cargar reservas de una sala");
+					return;
+				}
+				if(end.isAfter(allowedEnd)){
+					alert("Periodo seleccionado supera el máximo permitido");
+					return;
+				}
 			}
 		},
 		eventClick : function(calEvent, jsEvent, view){
-			window.open("reservas/" + calEvent.id + "/edit", "_blank");
+			var windowDet = window.open("reservas/" + calEvent.id + "/edit", "_blank");
+			windowDet.onunload = function(e){
+				if(e.URL != "about:blank"){
+					$("#btnCargarReservas").click();	
+				}
+			}
 			return false;
 		}
 	});
@@ -90,8 +109,7 @@ $( document ).ready(function() {
 			fin : $("#reservaEnd").text(),
 			personal_id : $("#reservaResponsable").val(),
 			sala_id : selectedSalaId,
-			motivo_id: "1",
-			sala_id:"1",
+			motivo_id: $("#reservaMotivo").val(),
 			aceptado : 0
 		}
 		$.post("/reservas", reservaData, function(response){
@@ -100,9 +118,10 @@ $( document ).ready(function() {
 			}else{
 				$("#calendar").fullCalendar('renderEvent', {
 					id : response.content.id,
-					title : response.content.personal,
+					title : response.content.personal + "\n " + response.content.motivo ,
 					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
-					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm')
+					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm'),
+					backgroundColor : "#00c0ef"
 				});
 			}
 		}).fail(function(response){
@@ -114,6 +133,7 @@ $( document ).ready(function() {
 	$("#btnCargarReservas").click(function(){
 		$("#calendar").show();
 		selectedSalaId = $("#selectSala").val();
+		maxBlocksAllowed = $("#selectSala :selected").data("maxtime");
 		//ajax para pedir reservas y cargarlas al 
 		$("#calendar").fullCalendar('removeEvents');
 		$.get("sala/" + selectedSalaId + "/reservas", function(data){
@@ -121,13 +141,24 @@ $( document ).ready(function() {
 			for(var index in data.content){
 				events.push({
 					id : data.content[index].id,
-					title : data.content[index].personal,
+					title : data.content[index].personal + "\n " + data.content[index].motivo,
 					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
-					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss')
+					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss'),
+					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#00c0ef"
 				});
 			}
 			$("#calendar").fullCalendar('addEventSource', events);
 		});
 	});
+
+	$("#btnAcceptReserva").click(function(){
+		$("#acceptFlag").val("1");
+		$("#formEditReserva").submit();
+	});
+
+	$("#btnEliminarReserva").click(function(){
+		$("#deleteFlag").val("1");
+		$("#formEditReserva").submit();
+	})
 
 });

@@ -12,17 +12,18 @@ class ReservaController extends Controller
 
     public function index()
     {
-    	$personals = \App\Personal::all();
+    	$personal_list = \App\Personal::all();
     	$salas_list = \App\Salas::all();
+        $motivos_list = \App\Motivo::all();
         $personal = [];
-        foreach ($personals as $persona) {
+        $motivos = [];
+        foreach ($personal_list as $persona) {
             $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
         }
-        $salas = [];
-        foreach ($salas_list as $sala) {
-            $salas[$sala->id] = $sala->nombre;
+        foreach ($motivos_list as $motivo) {
+            $motivos[$motivo->id] = $motivo->descripcion;
         }
-    	return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas]);
+    	return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas_list, 'motivos' => $motivos]);
     }
 
 
@@ -41,6 +42,7 @@ class ReservaController extends Controller
             	"inicio" => $reserva->inicio->format("d/m/Y H:i"),
             	"fin" => $reserva->fin->format("d/m/Y H:i"),
             	"personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+                "motivo" => $reserva->motivo->descripcion,
             	"id" => $reserva->id
             ];
             return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservaResponse]);
@@ -57,8 +59,14 @@ class ReservaController extends Controller
         try
         {
             $reserva = Reservas::findOrFail($id);
-            $reserva->update($request->all());
-            return redirect()->route('reservas.show', [$reserva->id]);
+            if($request->deleteFlag){
+                $reserva->delete();
+            }
+            if($request->acceptFlag){
+                $reserva->aceptado = true;
+                $reserva->save();
+            }
+            return view("reservas.show");
         }catch(ModelNotFoundException $e)
         {
             Session::flash([

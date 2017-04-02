@@ -31,6 +31,10 @@
         		<p class="form-control-static col-md-10" id="reservaEnd"></p>
         	</div>
         	<div class="form-group">
+				<label class="control-label col-md-2">Motivo:</label>
+				{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaMotivo"]) !!}
+			</div>
+        	<div class="form-group">
 				<label class="control-label col-md-2">Responsable:</label>
 				{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaResponsable"]) !!}
 			</div>
@@ -55,7 +59,11 @@
 			<form class="col-md-12 form-inline">
 				<div class="form-group">
 	        		<label>Seleccione Sala:</label>
-	        		{!! Form::select('sala_id', $salas, null, ['class' => 'form-control col-md-10 select2', 'id' => "selectSala"]) !!}
+	        		<select class="form-control col-md-10 select2" id="selectSala">
+		        		@foreach($salas as $sala)
+		        		<option value="{{$sala->id}}" data-maxTime={{$sala->max_tiempo_reserva}}>{{$sala->nombre}}</option>
+		        		@endforeach
+	        		</select>
 	        	</div>
 	        	<button class="btn btn-primary" type="button" id="btnCargarReservas">Cargar Reservas</button>
 			</form>
