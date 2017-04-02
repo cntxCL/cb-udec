@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+
+	var selectedSalaId = -1;
+
 	$('#data-table').DataTable({
 		"paging": true,
 		"ordering": true,
@@ -71,6 +74,26 @@ $( document ).ready(function() {
 				$("#createReserva").modal('show');
 			}
 		}
+	});
+
+
+	$("#saveReservaBtn").click(function()
+	{
+		//rescatar datos para mandar peticion POST de creacion de reserva
+		var reservaData = {
+			start : $("#reservaStart").text(),
+			end : $("#reservaEnd").text(),
+			personal_id : $("#reservaResponsable").val(),
+			sala_id : selectedSalaId,
+			motivo_id: "1"
+		}
+		$("#createReserva").modal('hide');
+	});
+
+	$("#btnCargarReservas").click(function(){
+		$("#calendar").show();
+		selectedSalaId = $("#selectSala").val();
+		//ajax para pedir reservas y cargarlas al calendario
 	});
 
 });
