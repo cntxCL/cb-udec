@@ -16,6 +16,12 @@
 						<th width="1em">Nombre</th>
 						<td>{{ $item->nombre }}</td>
 					</tr>
+					<tr>
+						<th width="1em">Capacidad</th>
+						<td>{{ $item->capacidad }}</td>
+						<th width="1em">Reserva</th>
+						<td>Máximo {{ $item->max_tiempo_reserva }} bloques</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
