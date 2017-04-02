@@ -55,7 +55,11 @@
 			<form class="col-md-12 form-inline">
 				<div class="form-group">
 	        		<label>Seleccione Sala:</label>
-	        		{!! Form::select('sala_id', $salas, null, ['class' => 'form-control col-md-10 select2', 'id' => "selectSala"]) !!}
+	        		<select class="form-control col-md-10 select2" id="selectSala">
+		        		@foreach($salas as $sala)
+		        		<option value="{{$sala->id}}" data-maxTime={{$sala->max_tiempo_reserva}}>{{$sala->nombre}}</option>
+		        		@endforeach
+	        		</select>
 	        	</div>
 	        	<button class="btn btn-primary" type="button" id="btnCargarReservas">Cargar Reservas</button>
 			</form>

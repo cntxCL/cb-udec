@@ -18,11 +18,7 @@ class ReservaController extends Controller
         foreach ($personals as $persona) {
             $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
         }
-        $salas = [];
-        foreach ($salas_list as $sala) {
-            $salas[$sala->id] = $sala->nombre;
-        }
-    	return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas]);
+    	return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas_list]);
     }
 
 

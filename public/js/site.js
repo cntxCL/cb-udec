@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 
 	var selectedSalaId = -1;
+	var maxBlocksAllowed = 0;
 
 	$('#data-table').DataTable({
 		"paging": true,
@@ -65,14 +66,23 @@ $( document ).ready(function() {
 		slotLabelFormat: 'hh:mm', 
 		selectable : true,
 		eventLimit: 1,
+		selectOverlap : false,
 		select : function(start, end, jsEvent, view)
 		{
-			if(view.type != "month")
+
+			var maxTimeSpan = moment.duration(maxBlocksAllowed * 30, 'minutes');
+			var allowedEnd = moment(start).add(maxTimeSpan);
+			if(view.type != "month" && selectedSalaId != -1 && end.isSameOrBefore(allowedEnd))
 			{
 				$("#reservaStart").text(start.format("DD/MM/YYYY HH:mm"));
 				$("#reservaEnd").text(end.format("DD/MM/YYYY HH:mm"));
-				$("#reservaSala").text("select sala");
+				$("#reservaSala").text($("#selectSala option[value='"+selectedSalaId+"']").text());
 				$("#createReserva").modal('show');
+			}else{
+				if(selectedSalaId == -1)
+					alert("Debe seleccionar y cargar reservas de una sala");
+				if(end.isAfter(allowedEnd))
+					alert("Periodo seleccionado supera el máximo permitido")
 			}
 		},
 		eventClick : function(calEvent, jsEvent, view){
@@ -114,6 +124,7 @@ $( document ).ready(function() {
 	$("#btnCargarReservas").click(function(){
 		$("#calendar").show();
 		selectedSalaId = $("#selectSala").val();
+		maxBlocksAllowed = $("#selectSala :selected").data("maxtime");
 		//ajax para pedir reservas y cargarlas al 
 		$("#calendar").fullCalendar('removeEvents');
 		$.get("sala/" + selectedSalaId + "/reservas", function(data){
