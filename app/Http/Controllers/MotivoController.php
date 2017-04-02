@@ -36,18 +36,7 @@ class MotivoController extends Controller
     public function store(MotivoRequest $request)
     {
         $motivo = Motivo::create($request->all());
-        return redirect()->route('motivos.show', [$motivo->id]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return view('motivos.show', ['item' => Motivo::findOrFail($id)]);
+        return redirect()->route('motivos.index', [$motivo->id]);
     }
 
     /**
@@ -72,7 +61,7 @@ class MotivoController extends Controller
     {
         $motivo = Motivo::findOrFail($id);
         $motivo->update($request->all());
-        return redirect()->route('motivos.show', [$id]);
+        return redirect()->route('motivos.index', [$id]);
     }
 
     /**

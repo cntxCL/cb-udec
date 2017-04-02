@@ -17,7 +17,7 @@ Route::resource("proyectos", "ProyectoController");
 Auth::routes();
 Route::resource("contratos", "ContratosController");
 Route::resource("salas", "SalaController");
-Route::resource("motivos", "MotivoController");
+Route::resource("motivos", "MotivoController", ['except' => 'show']);
 Route::resource("reservas", "ReservaController");
 Route::resource('logs', 'LogController', ['only' => [
     'index', 'show'
