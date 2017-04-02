@@ -79,10 +79,14 @@ $( document ).ready(function() {
 				$("#reservaSala").text($("#selectSala option[value='"+selectedSalaId+"']").text());
 				$("#createReserva").modal('show');
 			}else{
-				if(selectedSalaId == -1)
+				if(selectedSalaId == -1){
 					alert("Debe seleccionar y cargar reservas de una sala");
-				if(end.isAfter(allowedEnd))
-					alert("Periodo seleccionado supera el máximo permitido")
+					return;
+				}
+				if(end.isAfter(allowedEnd)){
+					alert("Periodo seleccionado supera el máximo permitido");
+					return;
+				}
 			}
 		},
 		eventClick : function(calEvent, jsEvent, view){
@@ -105,8 +109,7 @@ $( document ).ready(function() {
 			fin : $("#reservaEnd").text(),
 			personal_id : $("#reservaResponsable").val(),
 			sala_id : selectedSalaId,
-			motivo_id: "1",
-			sala_id:"1",
+			motivo_id: $("#reservaMotivo").val(),
 			aceptado : 0
 		}
 		$.post("/reservas", reservaData, function(response){
@@ -115,7 +118,7 @@ $( document ).ready(function() {
 			}else{
 				$("#calendar").fullCalendar('renderEvent', {
 					id : response.content.id,
-					title : response.content.personal,
+					title : response.content.personal + "\n " + response.content.motivo ,
 					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
 					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm'),
 					backgroundColor : "#00c0ef"
@@ -138,7 +141,7 @@ $( document ).ready(function() {
 			for(var index in data.content){
 				events.push({
 					id : data.content[index].id,
-					title : data.content[index].personal,
+					title : data.content[index].personal + "\n " + data.content[index].motivo,
 					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
 					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss'),
 					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#00c0ef"

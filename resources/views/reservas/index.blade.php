@@ -31,6 +31,10 @@
         		<p class="form-control-static col-md-10" id="reservaEnd"></p>
         	</div>
         	<div class="form-group">
+				<label class="control-label col-md-2">Motivo:</label>
+				{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaMotivo"]) !!}
+			</div>
+        	<div class="form-group">
 				<label class="control-label col-md-2">Responsable:</label>
 				{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaResponsable"]) !!}
 			</div>

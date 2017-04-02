@@ -91,6 +91,7 @@ class SalaController extends Controller
                     "inicio" => $reserva->inicio,
                     "fin" => $reserva->fin,
                     "personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+                    "motivo" => $reserva->motivo->descripcion,
                     "id" => $reserva->id,
                     "aceptado" => $reserva->aceptado
                 ];

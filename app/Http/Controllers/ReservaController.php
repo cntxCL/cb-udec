@@ -12,13 +12,18 @@ class ReservaController extends Controller
 
     public function index()
     {
-    	$personals = \App\Personal::all();
+    	$personal_list = \App\Personal::all();
     	$salas_list = \App\Salas::all();
+        $motivos_list = \App\Motivo::all();
         $personal = [];
-        foreach ($personals as $persona) {
+        $motivos = [];
+        foreach ($personal_list as $persona) {
             $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
         }
-    	return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas_list]);
+        foreach ($motivos_list as $motivo) {
+            $motivos[$motivo->id] = $motivo->descripcion;
+        }
+    	return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas_list, 'motivos' => $motivos]);
     }
 
 
@@ -37,6 +42,7 @@ class ReservaController extends Controller
             	"inicio" => $reserva->inicio->format("d/m/Y H:i"),
             	"fin" => $reserva->fin->format("d/m/Y H:i"),
             	"personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+                "motivo" => $reserva->motivo->descripcion,
             	"id" => $reserva->id
             ];
             return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservaResponse]);
