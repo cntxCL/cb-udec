@@ -19,8 +19,6 @@
 						<td>{{ $item->apellido }}</td>
 					</tr>
 					<tr>
-{{-- 						<th>Correo</th>
-						<td>{{ $item->correo }}</td> --}}
 						<th>Teléfono</th>
 						<td>{{ $item->telefono }}</td>
 						<th>Cargo</th>

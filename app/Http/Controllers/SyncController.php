@@ -36,7 +36,7 @@ class SyncController extends ApiController
     {
     	$data = $request->json()->all();
     	foreach ($data as $key => $value) {
-    		$personal = Personal::where("reloj_id", $value["userid"])->first();
+    		$personal = Personal::where("reloj_id", $value["reloj_id"])->first();
             if($personal == null) continue;
             $checkData = [
                 "personal_id" => $personal->id,
@@ -47,7 +47,7 @@ class SyncController extends ApiController
             else
                 $check = Salida::create($checkData);
             $check->save();
-    	}	
+    	}
         return response()->json(["status" => "OK"]);
     }
 }

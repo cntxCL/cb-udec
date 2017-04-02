@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Salas;
+use App\Http\Requests\SalaRequest;
 
 class SalaController extends Controller
 {
@@ -13,7 +14,7 @@ class SalaController extends Controller
      */
     public function index()
     {
-        // return(view('salas.index'))
+        return view('salas.index', ['items' => Salas::all()]);
     }
 
     /**
@@ -23,7 +24,7 @@ class SalaController extends Controller
      */
     public function create()
     {
-        // return(view('salas.create'))
+        return view('salas.create');
     }
 
     /**
@@ -32,9 +33,10 @@ class SalaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SalaRequest $request)
     {
-        // 
+        $sala = Salas::create($request->all());
+        return redirect()->route('salas.show', [$sala->id]);
     }
 
     /**
@@ -45,7 +47,7 @@ class SalaController extends Controller
      */
     public function show($id)
     {
-        // return(view('salas.show'))
+        return view('salas.show', ['item' => Salas::findOrFail($id)]);
     }
 
     /**
@@ -56,7 +58,7 @@ class SalaController extends Controller
      */
     public function edit($id)
     {
-        // return(view('salas.edit'))
+        return view('salas.edit', ['item' => Salas::findOrFail($id)]);
     }
 
     /**
@@ -66,9 +68,11 @@ class SalaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SalaRequest $request, $id)
     {
-        //
+        $sala = Salas::findOrFail($id);
+        $sala->update($request->all());
+        return redirect()->route('salas.show', [$id]);
     }
 
     /**
@@ -79,7 +83,9 @@ class SalaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sala = Salas::findOrFail($id);
+        $sala->delete();
+        return redirect()->route('salas.index');
     }
 
     public function getReservas($id){
@@ -101,6 +107,6 @@ class SalaController extends Controller
         catch(Exception $e)
         {
             return response()->json(['flag' => false, 'titulo'=>'Error', 'content'=>'Error al Obtener Reservas']);
-        }         
+        }
     }
 }
