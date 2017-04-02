@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReservaRequest extends FormRequest
+class ReservasRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ReservaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,15 +25,15 @@ class ReservaRequest extends FormRequest
     {
         $rules = [
             "POST" => [
-                "inicio" => "required|date_format:d/m/Y",
-                "fin" => "required|date_format:d/m/Y|after:inicio",
+                "inicio" => "required|date_format:d/m/Y H:i",
+                "fin" => "required|date_format:d/m/Y H:i|after:inicio",
                 "personal_id" => "required|exists:personal,id",
                 "sala_id" => "required|exists:salas,id",
                 "motivo_id" => "required|exists:motivo,id"
             ],
             "PUT" => [
-                "inicio" => "required|date_format:d/m/Y",
-                "fin" => "required|date_format:d/m/Y|after:inicio",
+                "inicio" => "required|date_format:d/m/Y H:i",
+                "fin" => "required|date_format:d/m/Y H:i|after:inicio",
                 "personal_id" => "required|exists:personal,id",
                 "sala_id" => "required|exists:proyectos,id",
                 "motivo_id" => "required|exists:motivo,id",

@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         //
     	"sync/add/personal",
     	"sync/delete/personal",
-    	"sync/inout/personal"
+    	"sync/inout/personal",
+        'reservas/'
     ];
 }

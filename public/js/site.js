@@ -81,12 +81,28 @@ $( document ).ready(function() {
 	{
 		//rescatar datos para mandar peticion POST de creacion de reserva
 		var reservaData = {
-			start : $("#reservaStart").text(),
-			end : $("#reservaEnd").text(),
+			inicio : $("#reservaStart").text(),
+			fin : $("#reservaEnd").text(),
 			personal_id : $("#reservaResponsable").val(),
 			sala_id : selectedSalaId,
-			motivo_id: "1"
+			motivo_id: "1",
+			sala_id:"1",
+			aceptado : 0
 		}
+		$.post("/reservas", reservaData, function(response){
+			if(!response.flag){
+				alert(respose.content);
+			}else{
+				$("#calendar").fullCalendar('renderEvent', {
+					id : content.id,
+					title : "reserva",
+					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
+					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm')
+				});
+			}
+		}).fail(function(response){
+			alert("Error guardando reserva, intente nuevamente");
+		});
 		$("#createReserva").modal('hide');
 	});
 

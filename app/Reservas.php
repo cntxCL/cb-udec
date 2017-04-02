@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Reservas extends Model
 {
@@ -13,12 +14,21 @@ class Reservas extends Model
 
     public function setInicioAttribute($value)
     {
-    	$this->attributes["inicio"] = Carbon::createFromFormat('d/m/Y H:i:s', $value); 
+    	$this->attributes["inicio"] = Carbon::createFromFormat('d/m/Y H:i', $value); 
     }
 
     public function setFinAttribute($value)
     {
-    	$this->attributes["fin"] = Carbon::createFromFormat('d/m/Y H:i:s', $value); 
+    	$this->attributes["fin"] = Carbon::createFromFormat('d/m/Y H:i', $value); 
+    }
+
+    public function getInicioAttribute()
+    {
+        return $this->attributes['inicio']->format('d/m/Y H:i');
+    }
+
+    public function getFinAttribute(){
+        return $this->attributes['fin']->format('d/m/Y H:i');
     }
 
     public function Personal(){
