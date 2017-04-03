@@ -23,21 +23,13 @@ class PersonalRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            "POST" => [
-                "nombre" => "required",
-                "apellido" => "required",
-                "cargo" => "required",
-                "telefono" => "required|between:9,11" 
-            ],
-            "PUT" => [
-                "nombre" => "required",
-                "apellido" => "required",
-                "cargo" => "required",
-                "telefono" => "required|between:9,11" 
-            ],
-            "DELETE" => []
+        return [
+            "rut" => "string|max:12",
+            "nombre" => "string|max:100",
+            "apellido" => "string|max:100",
+            "cargo" => "string|max:100",
+            "cargo" => "string|max:100",
+            "telefono" => "sometimes|digits_between:9,11"
         ];
-        return $rules[$this->method()];
     }
 }

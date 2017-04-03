@@ -17,7 +17,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
-						<th>Fecha de Creación</th>
+						<th>Descripción</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -26,7 +26,11 @@
 					<tr>
 						<td>{{ $item->id }}</td>
 						<td>{{ $item->nombre }}</td>
-						<td>{{ $item->created_at }}</td>
+                        @if(strlen($item->descripcion) > 60)
+						<td>{{ substr($item->descripcion, 0, 57) }}...</td>
+                        @else
+						<td>{{ $item->descripcion }}</td>
+                        @endif
 						<td>
 							<a href="{{ route('proyectos.show', [$item->id]) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span></a>
 							<a href="{{ route('proyectos.edit', [$item->id]) }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>

@@ -17,7 +17,8 @@
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
-						<th>Fecha de Creación</th>
+						<th>Capacidad</th>
+						<th>Bloques máximos</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -26,7 +27,8 @@
 					<tr>
 						<td>{{ $item->id }}</td>
 						<td>{{ $item->nombre }}</td>
-						<td>{{ $item->created_at }}</td>
+						<td>{{ $item->capacidad }}</td>
+						<td>{{ $item->max_tiempo_reserva }}</td>
 						<td>
 							<a href="{{ route('salas.show', [$item->id]) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span></a>
 							<a href="{{ route('salas.edit', [$item->id]) }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>

@@ -15,20 +15,20 @@
 			<table class="table" id="data-table">
 				<thead>
 					<tr>
-						<th>ID</th>
+						<th>Rut</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
-{{-- 						<th>Correo</th> --}}
+						<th>Correo</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
 				@foreach($items as $item)
 					<tr>
-						<td>{{ $item->id }}</td>
+						<td>{{ $item->rut }}</td>
 						<td>{{ $item->nombre }}</td>
 						<td>{{ $item->apellido }}</td>
-{{-- 						<td>{{ $item->correo }}</td> --}}
+						<td>{{ $item->correo }}</td>
 						<td>
 							<a href="{{ route('personal.show', [$item->id]) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span></a>
 							<a href="{{ route('personal.edit', [$item->id]) }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>

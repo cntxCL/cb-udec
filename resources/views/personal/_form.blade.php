@@ -9,26 +9,22 @@
 	</div>
 </div>
 
-{{-- <div class="form-group">
-	<label class="control-label col-md-1">Correo</label>
-	<div class="col-md-5">
-		{!! Form::email('correo', null, ['placeholder' => 'Correo Electrónico', 'class' => 'form-control']) !!}
-	</div>
-</div> --}}
-
 <div class="form-group">
+	<label class="control-label col-md-1">RUT</label>
+	<div class="col-md-3">
+        {!! Form::text('rut', null, ['placeholder' => 'RUT', 'class' => 'form-control', 'maxlength' => 12]) !!}
+	</div>
 	<label class="control-label col-md-1">Teléfono</label>
-	<div class="col-md-5">
-		{!! Form::text('telefono', null, ['placeholder' => 'Teléfono', 'class' => 'form-control']) !!}
+	<div class="col-md-3">
+		{!! Form::number('telefono', null, ['placeholder' => 'Teléfono', 'class' => 'form-control']) !!}
 	</div>
 	<label class="control-label col-md-1">Cargo</label>
-	<div class="col-md-5">
+	<div class="col-md-3">
 		<select class="form-control" name="cargo" id="cargos">
 			@if(isset($item))
 				<option value="{{$item->cargo}}" selected="selected">{{ $item->cargo }}</option>
 			@endif
 		</select>
-{{-- 		{!! Form::select('cargo', null, null, ['placeholder' => 'Cargo', 'class' => 'form-control select2']) !!} --}}
 	</div>
 </div>
 

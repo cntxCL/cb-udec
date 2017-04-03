@@ -8,6 +8,6 @@ class Personal extends Model
 {
     protected $table = 'personal';
 
-    protected $fillable = ['nombre', 'apellido', 'cargo', 'telefono', "reloj_id"];
+    protected $fillable = ['rut', 'nombre', 'apellido', 'cargo', 'telefono', "reloj_id"];
 
 }
