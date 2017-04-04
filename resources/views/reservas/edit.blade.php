@@ -1,42 +1,48 @@
 @extends('layouts.master')
 
-@section('title', 'Contratos')
+@section('title', 'Reservas')
 
 @section('content')
 
 <div class="box box-default">
 	<div class="box-header">
-		<h1 class="box-title">Editar Reserva</h1>
+		<h1 class="box-title">Información Reserva</h1>
 	</div>
 	<div class="box-body">
 		{!! Form::model($item, ['route' => ['reservas.update', $item->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'formEditReserva']) !!}
             <input type="hidden" id="acceptFlag" name="acceptFlag" value="0">
             <input type="hidden" id="deleteFlag" name="deleteFlag" value="0">
-       		 <div class="form-group">
-        		<label class="control-label col-md-2">Sala:</label>
-        		<p class="form-control-static col-md-10" id="reservaSala">{{$item->sala->nombre}}</p>
-        	</div>
-        	<div class="form-group">
-        		<label class="control-label col-md-2">Inicio:</label>
-        		<p class="form-control-static col-md-10" id="reservaStart">{{$item->inicio}}</p>
-        	</div>
-        	<div class="form-group">
-        		<label class="control-label col-md-2">Termino:</label>
-        		<p class="form-control-static col-md-10" id="reservaEnd">{{$item->fin}}</p>
-        	</div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Motivo:</label>
-                <p class="form-control-static col-md-10">{{$item->motivo->descripcion}}</p>
-            </div>
-        	<div class="form-group">
-				<label class="control-label col-md-2">Responsable:</label>
-				<p class="form-control-static col-md-10">{{$item->personal->nombre . " " . $item->personal->apellido}}</p>
-			</div>
+       		
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th width="100px">Sala</th>
+                        <td id="reservaSala">{{$item->sala->nombre}}</td>
+                    </tr>
+                    <tr>
+                        <th>Inicio</th>
+                        <td id="reservaStart">{{$item->inicio}}</td>
+                    </tr>
+                    <tr>
+                        <th>Término</th>
+                        <td id="reservaEnd">{{$item->fin}}</td>
+                    </tr>
+                    <tr>
+                        <th>Motivo</th>
+                        <td>{{$item->motivo->descripcion}}</td>
+                    </tr>
+                    <tr>
+                        <th>Responsable</th>
+                        <td>{{$item->personal->nombre . " " . $item->personal->apellido}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
             @if(!$item->aceptado)
                 <button type="button" class="btn btn-success" id="btnAcceptReserva"> Aprobar Reserva</button>
             @endif
             <button type="button" class="btn btn-danger" id="btnEliminarReserva"> Eliminar Reserva</button>
-            <button type="button" class="btn btn-warning" onclick="window.close()">Cerrar</button>
+            <button type="button" class="btn btn-default pull-right" onclick="window.close()">Cerrar</button>
 		{!! Form::close() !!}
 	</div>
 </div>

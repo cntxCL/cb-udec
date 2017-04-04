@@ -58,7 +58,7 @@
 		<div class="row">
 			<form class="col-md-12 form-inline">
 				<div class="form-group">
-	        		<label>Seleccione Sala:</label>
+	        		<label>Seleccione Sala:</label>  &nbsp;
 	        		<select class="form-control col-md-10 select2" id="selectSala">
 		        		@foreach($salas as $sala)
 		        		<option value="{{$sala->id}}" data-maxTime={{$sala->max_tiempo_reserva}}>{{$sala->nombre}}</option>

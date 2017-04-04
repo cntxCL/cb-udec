@@ -50,7 +50,7 @@
 			<nav class="navbar navbar-static-top" role="navigation">
 				<!-- Sidebar toggle button-->
 				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-					<span class="sr-only">Toggle navigation</span>
+					<span class="sr-only">Hab. n</span>
 				</a>
 				<!-- Navbar Right Menu -->
 				<div class="navbar-custom-menu">
@@ -63,18 +63,18 @@
 								<span class="label label-warning"></span>
 							</a>
 							<ul class="dropdown-menu">
-								<li class="header">You have 10 notifications</li>
-								<li>
+								<li class="header">Notificaciones</li>
+{{-- 								<li>
 									<!-- Inner Menu: contains the notifications -->
 									<ul class="menu">
 										<li><!-- start notification -->
 											<a href="#">
-												<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												<i class="fa fa-users text-aqua"></i> Sin notificaciones
 											</a>
 										</li><!-- end notification -->
 									</ul>
-								</li>
-								<li class="footer"><a href="#">View all</a></li>
+								</li> --}}
+								<li class="footer"><a href="#">Ver todo</a></li>
 							</ul>
 						</li>
 
@@ -141,8 +141,8 @@
 					<li><a href="/proyectos"><span><i class="fa fa-folder-open-o"></i> Proyectos</span></a></li>
 					<li><a href="/contratos"><span><i class="fa fa-files-o"></i> Contratos</span></a></li>
 					<li><a href="/salas"><span><i class="fa fa-cubes"></i> Salas</span></a></li>
-					<li><a href="/motivos"><span><i class="fa fa-cubes"></i> Motivos</span></a></li>
 					<li><a href="/reservas"><span><i class="fa fa-calendar"></i> Reservas</span></a></li>
+					<li><a href="/motivos"><span><i class="fa fa-list"></i> Motivos Reserva</span></a></li>
 					<!--
 					<li class="treeview">
 						<a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
