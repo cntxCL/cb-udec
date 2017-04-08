@@ -15,4 +15,10 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+    public function reservas_public()
+    {
+    	$salas = \App\Salas::all();
+    	return view('public', compact('salas'));
+    }
 }

@@ -19,6 +19,6 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->middleware('log')->only(['store', 'update', 'destroy']);
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['reservas_public','getReservas']]);
     }
 }

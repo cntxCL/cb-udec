@@ -63,7 +63,7 @@ $( document ).ready(function() {
 		minTime : '08:00',
 		maxTime : '21:30',
 		slotLabelInterval : '00:30',
-		slotLabelFormat: 'hh:mm', 
+		slotLabelFormat: 'HH:mm', 
 		selectable : true,
 		eventLimit: 1,
 		selectOverlap : false,

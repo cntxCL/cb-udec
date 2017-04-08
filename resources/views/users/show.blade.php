@@ -23,8 +23,8 @@
 			</table>
 		</div>
 		<h4>Logs</h4>
-		<div class="table-responsive">
-			<table class="table table-striped">
+		<div class="table-responsive col-sm-12">
+			<table class="table table-striped" id="data-table">
 				<thead>
 					<tr>
 						<th>ID</th>

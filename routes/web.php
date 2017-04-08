@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/',"HomeController@index");
+Route::get("/","HomeController@index");
+Route::get("/public","HomeController@reservas_public");
 Route::resource("personal", "PersonalController");
 Route::resource("proyectos", "ProyectoController");
 Auth::routes();
