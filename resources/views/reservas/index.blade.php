@@ -19,25 +19,25 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					 <div class="form-group">
-						<label class="control-label col-md-2">Sala:</label>
-						<p class="form-control-static col-md-10" id="reservaSala"></p>
+						<label class="control-label col-md-3">Sala:</label>
+						<p class="form-control-static col-md-9" id="reservaSala"></p>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2">Inicio:</label>
-						<p class="form-control-static col-md-10" id="reservaStart"></p>
+						<label class="control-label col-md-3">Inicio:</label>
+						<p class="form-control-static col-md-9" id="reservaStart"></p>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2">Termino:</label>
-						<p class="form-control-static col-md-10" id="reservaEnd"></p>
+						<label class="control-label col-md-3">Termino:</label>
+						<p class="form-control-static col-md-9" id="reservaEnd"></p>
 					</div>
 					<div class="form-group">
-				<label class="control-label col-md-2">Motivo:</label>
-				{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaMotivo"]) !!}
-			</div>
+						<label class="control-label col-md-3">Motivo:</label>
+						{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaMotivo"]) !!}
+					</div>
 					<div class="form-group">
-				<label class="control-label col-md-2">Responsable:</label>
-				{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-10 select2', 'id' => "reservaResponsable"]) !!}
-			</div>
+						<label class="control-label col-md-3">Responsable:</label>
+						{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaResponsable"]) !!}
+					</div>
 				</form>
 			</div>
 			<div class="modal-footer">

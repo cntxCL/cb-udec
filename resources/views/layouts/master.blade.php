@@ -6,7 +6,7 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>CB-UdeC</title>
+		<title>Intranet CBUdeC</title>
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<!-- Bootstrap 3.3.2 -->
 		<link href="{{ asset("/admin-lte/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
@@ -25,8 +25,8 @@
 		<!-- Theme style -->
 		<link href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-			  page. However, you can choose any other skin. Make sure you
-			  apply the skin class to the body tag so the changes take effect.
+				page. However, you can choose any other skin. Make sure you
+				apply the skin class to the body tag so the changes take effect.
 		-->
 		<link href="{{ asset("/admin-lte/dist/css/skins/skin-green.min.css")}}" rel="stylesheet" type="text/css" />
 
@@ -44,7 +44,8 @@
 		<header class="main-header">
 
 			<!-- Logo -->
-			<a href="/" class="logo"><b>CB</b>UdeC</a>
+			<!-- <a href="/" class="logo"><b>CB</b>UdeC</a> -->
+			<a href="/" class="logo"><img src="/cb_udec.png" height="40"></a>
 
 			<!-- Header Navbar -->
 			<nav class="navbar navbar-static-top" role="navigation">
@@ -140,9 +141,19 @@
 					<li><a href="/personal"><span><i class="fa fa-users"></i> Personal</span></a></li>
 					<li><a href="/proyectos"><span><i class="fa fa-folder-open-o"></i> Proyectos</span></a></li>
 					<li><a href="/contratos"><span><i class="fa fa-files-o"></i> Contratos</span></a></li>
-					<li><a href="/salas"><span><i class="fa fa-cubes"></i> Salas</span></a></li>
-					<li><a href="/reservas"><span><i class="fa fa-calendar"></i> Reservas</span></a></li>
-					<li><a href="/motivos"><span><i class="fa fa-list"></i> Motivos Reserva</span></a></li>
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-calendar"></i> <span>Reservas</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li><a href="/reservas"><span><i class="fa fa-calendar"></i> Calendario</span></a></li>
+							<li><a href="/salas"><span><i class="fa fa-cubes"></i> Salas</span></a></li>
+							<li><a href="/motivos"><span><i class="fa fa-list"></i> Motivos</span></a></li>
+						</ul>
+					</li>
 					<!--
 					<li class="treeview">
 						<a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -175,22 +186,22 @@
 
 				<!-- Errores -->
 				@if (count($errors) > 0)
-				    <div class="alert alert-danger">
-				        <h4><i class="icon fa fa-ban"></i> ¡Oops! Hubieron errores de validación</h4>
-				        <ul>
-				            @foreach ($errors->all() as $error)
-				                <li>{{ $error }}</li>
-				            @endforeach
-				        </ul>
-				    </div>
+						<div class="alert alert-danger">
+								<h4><i class="icon fa fa-ban"></i> ¡Oops! Hubieron errores de validación</h4>
+								<ul>
+										@foreach ($errors->all() as $error)
+												<li>{{ $error }}</li>
+										@endforeach
+								</ul>
+						</div>
 				@endif
 
 				<!-- Mensajes de sesión -->
 				@if (Session::has('message'))
-    				<div class="alert alert-{{ Session::get('alert') }}">
-    					<h4>{{ Session::get('title') }}</h4>
-    					<p>{{ Session::get('message') }}</p>
-    				</div>
+						<div class="alert alert-{{ Session::get('alert') }}">
+							<h4>{{ Session::get('title') }}</h4>
+							<p>{{ Session::get('message') }}</p>
+						</div>
 				@endif
 
 				<!-- Your Page Content Here -->
@@ -206,7 +217,7 @@
 				{{ date('d-m-Y') }}
 			</div>
 			<!-- Default to the left -->
-			<strong>Copyright © 2016 <a href="#">Centro de Biotecnología - Universidad de Concepción</a>.</strong>
+			<strong>Copyright © 2016-2017 <a href="http://www.centrobiotecnologia.cl">Centro de Biotecnología - Universidad de Concepción</a>.</strong>
 		</footer>
 
 	</div><!-- ./wrapper -->
@@ -236,8 +247,8 @@
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.locales.js") }}"></script>
 
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.
-		  Both of these plugins are recommended to enhance the
-		  user experience -->
+			Both of these plugins are recommended to enhance the
+			user experience -->
 	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
 

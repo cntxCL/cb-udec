@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CB-UdeC</title>
+	<title>Intranet CBUdeC</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -61,7 +61,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Calendario de Reservas
+					Calendario de Reservas - Centro de Biotecnología Universidad de Concepción
 				</h1>
 			</section>
 
@@ -94,11 +94,7 @@
 	<!-- /.content-wrapper -->
 	<footer class="main-footer">
 		<div class="container">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 2.3.7
-			</div>
-			<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-			reserved.
+			<strong>Copyright © 2016-2017 <a href="http://www.centrobiotecnologia.cl">Centro de Biotecnología - Universidad de Concepción</a>.</strong>
 		</div>
 		<!-- /.container -->
 	</footer>

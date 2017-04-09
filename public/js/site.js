@@ -61,12 +61,13 @@ $( document ).ready(function() {
 		},
 		defaultView : 'agendaWeek',
 		minTime : '08:00',
-		maxTime : '21:30',
-		slotLabelInterval : '00:30',
+		maxTime : '21:00',
+		slotLabelInterval : '01:00',
 		slotLabelFormat: 'HH:mm', 
 		selectable : true,
 		eventLimit: 1,
 		selectOverlap : false,
+		allDaySlot: false,
 		select : function(start, end, jsEvent, view)
 		{
 

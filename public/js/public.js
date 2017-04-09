@@ -15,12 +15,13 @@ $( document ).ready(function() {
 		},
 		defaultView : 'agendaWeek',
 		minTime : '08:00',
-		maxTime : '21:30',
+		maxTime : '21:00',
 		slotLabelInterval : '01:00',
 		slotLabelFormat: 'HH:mm', 
 		selectable : true,
 		eventLimit: 1,
 		selectOverlap : false,
+		allDaySlot: false,
 		eventClick : function(calEvent, jsEvent, view){
 			var windowDet = window.open("reservas/" + calEvent.id + "/edit", "_blank");
 			windowDet.onunload = function(e){
