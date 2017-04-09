@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Intranet CBUdeC</title>
+	<title>CBUdeC</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -61,7 +61,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Calendario de Reservas - Centro de Biotecnología Universidad de Concepción
+					Calendario de Reservas - Centro de Biotecnología UdeC
 				</h1>
 			</section>
 

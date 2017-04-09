@@ -8,16 +8,15 @@
 	<div class="box-header">
 		<h1 class="box-title">Listado de Contratos
 		 @if (isset($personal))
-		 	{{ $personal->nombre.' '.$personal->apellido }} 
+		 	de {{ $personal->nombre.' '.$personal->apellido }} 
 		 @endif
 		</h1>
 	</div>
 	<div class="box-body">
 		@if(!isset($personal))
 		<a href="/contratos/create" class="btn btn-success"><i class="fa fa-file-o"></i> Crear Nuevo Contrato</a>
-		
-		@endif
 		<hr>
+		@endif
 		<div class="col-md-12 table-responsive">
 			<table class="table" id="data-table">
 				<thead>

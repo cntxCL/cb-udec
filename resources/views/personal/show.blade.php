@@ -17,6 +17,8 @@
 						<td>{{ $item->nombre }}</td>
 						<th width="1em">Apellido</th>
 						<td>{{ $item->apellido }}</td>
+						<th>RUT</th>
+						<td>{{ $item->rut }}</td>
 					</tr>
 					<tr>
 						<th>Teléfono</th>
