@@ -14,6 +14,8 @@
 Route::get("/","HomeController@index");
 Route::get("/public","HomeController@reservas_public");
 Route::resource("personal", "PersonalController");
+Route::get('personal/{id}/contratos',"PersonalController@getContratos");
+Route::get('personal/{id}/inout',"PersonalController@getInOut");
 Route::resource("proyectos", "ProyectoController");
 Auth::routes();
 Route::resource("contratos", "ContratosController");

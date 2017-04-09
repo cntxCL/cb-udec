@@ -13,25 +13,36 @@
 			<table class="table table-striped">
 				<tbody>
 					<tr>
-						<th width="1em">Nombre</th>
-						<td>{{ $item->nombre }}</td>
-						<th width="1em">Apellido</th>
-						<td>{{ $item->apellido }}</td>
+						<th>Entrada</th>
+						<th>Salida</th>
 					</tr>
 					<tr>
-						<th>Teléfono</th>
-						<td>{{ $item->telefono }}</td>
-						<th>Cargo</th>
-						<td>{{ $item->cargo }}</td>
-						<th>Correo</th>
-						<td>{{ $item->correo }}</td>
+						<td>
+							<table>
+								@foreach($entradas as $item)
+								<tr>
+									<td>{{ $item->fecha }}</td>
+								<tr>
+							@endforeach
+							</table>
+
+						</td>
+						<td>
+							<table>
+								@foreach($salidas as $item)
+								<tr>
+									<td>{{ $item->fecha }}</td>
+								<tr>
+							@endforeach
+							</table>
+
+						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	<a href="/personal" class="btn btn-default">Volver a Personal</a>
 	<a href="/personal/{{ $item->id }}/contratos" class="btn btn-default">Ver Contratos</a>
-	<a href="/personal/{{ $item->id }}/inout" class="btn btn-default">Ver Movimiento</a>
 	</div>
 </div>
 

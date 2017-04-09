@@ -39,8 +39,14 @@ class PersonalController extends Controller
      */
     public function store(PersonalRequest $request)
     {
-        //
+        if($request["telefono"]=="")
+            $request["telefono"] = null;
+        if ($request->hasFile('cv')) {
+            $imagen = $request->file('cv')->store('archivos');
+            var_dump($imagen);
+        }
         $personal = Personal::create($request->all());
+
         return redirect()->route('personal.show', [$personal->id]);
     }
 
@@ -83,6 +89,8 @@ class PersonalController extends Controller
         try
         {
             $personal = Personal::findOrFail($id);
+            if($request["telefono"]=="")
+                $request["telefono"] = null;
             $personal->update($request->all());
             return redirect()->route('personal.show', [$personal->id]);
         }catch(ModelNotFoundException $e)
@@ -130,5 +138,38 @@ class PersonalController extends Controller
 
         return $json;
     }
+
+    public function getContratos($id){
+        try {
+            $personal = Personal::findOrFail($id);
+            $contratos = $personal->contratos()->get();
+            return view("contratos.index")->with(array("items"=>$contratos,"personal"=>$personal));
+        } catch (Exception $e) {
+            Session::flash([
+                "title" => "Contrato no encontrado",
+                "message" => "Personal no cuenta con contratos Asociados",
+                "alert" => "danger"
+            ]);
+        }
+    }
+    public function getInOut($id){
+        try {
+            $personal = Personal::findOrFail($id);
+            $entradas = $personal->entradas()->get();
+            $salidas = $personal->salidas()->get();
+            return view("personal.inout")->with(array(
+                    "entradas"=>$entradas,
+                    "salidas"=>$salidas,
+                    "personal"=>$personal
+                    ));
+        } catch (Exception $e) {
+            Session::flash([
+                "title" => "Contrato no encontrado",
+                "message" => "Personal no cuenta con contratos Asociados",
+                "alert" => "danger"
+            ]);
+        }
+    }
+
 
 }

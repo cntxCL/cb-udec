@@ -9,7 +9,7 @@
 		<h1 class="box-title">Crear Nueva Persona</h1>
 	</div>
 	<div class="box-body">
-		{!! Form::open(['url' => '/personal', 'class' => 'form-horizontal']) !!}
+		{!! Form::open(['url' => '/personal', 'class' => 'form-horizontal','files' => true]) !!}
 
 		@include('personal._form')
 
