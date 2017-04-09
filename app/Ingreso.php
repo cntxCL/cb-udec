@@ -13,9 +13,11 @@ class Ingreso extends Model
 
     public function setFechaAttribute($value)
     {
-    	$this->attributes["fecha"] = Carbon::CreateFromFormat("d-m-Y H:i:s", $value);
+    	$this->attributes["fecha"] = Carbon::CreateFromFormat("d/m/Y H:i:s", $value);
     }
-    public function getFechaAttribute($value){
+
+    public function getFechaAttribute($value)
+    {
     	return Carbon::parse($value)->format('d/m/Y H:i:s');
     }
 
