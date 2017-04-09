@@ -28,6 +28,12 @@
 						<th>Correo</th>
 						<td>{{ $item->correo }}</td>
 					</tr>
+					@if ($item->cv_id!=null)
+					<tr>
+						<th>CV</th>
+						<td><a href="/archivos/{{ $item->cv_id }}">Descargar</a></td>
+					</tr>
+					@endif
 				</tbody>
 			</table>
 		</div>

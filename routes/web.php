@@ -18,6 +18,7 @@ Route::get('personal/{id}/contratos',"PersonalController@getContratos");
 Route::get('personal/{id}/inout',"PersonalController@getInOut");
 Route::resource("proyectos", "ProyectoController");
 Auth::routes();
+Route::resource("archivos", "ArchivosController");
 Route::resource("contratos", "ContratosController");
 Route::resource("salas", "SalaController");
 Route::resource("motivos", "MotivoController", ['except' => 'show']);

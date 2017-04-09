@@ -8,7 +8,7 @@ class Personal extends Model
 {
     protected $table = 'personal';
 
-    protected $fillable = ['rut', 'nombre', 'apellido', 'cargo', 'telefono', "reloj_id", "correo"];
+    protected $fillable = ['rut', 'nombre', 'apellido', 'cargo', 'telefono', "reloj_id", "correo","cv_id"];
 
     public function contratos()
     {
