@@ -24,7 +24,7 @@ class PersonalRequest extends FormRequest
     public function rules()
     {
         return [
-            "rut" => "string|max:12",
+            "rut" => "string|max:12|unique:personal,rut|regex:/^(\d{1,3}(\.?\d{3}){2})\-?([\dkK])$/",
             "nombre" => "alpha_spaces|max:100",
             "apellido" => "alpha_spaces|max:100",
             "cargo" => "string|max:100",

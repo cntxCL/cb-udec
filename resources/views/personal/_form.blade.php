@@ -51,9 +51,15 @@
 </div>
 
 <script type="text/javascript">
-	$("#rut").rut({
-		formatOn: 'keyup',
-		minimumLength: 2, // validar largo mínimo; default: 2
-		validateOn: 'change' // si no se quiere validar, pasar null
+	$("#rut").Rut({
+		format_on: 'keyup',
+		on_error: function(){
+			$("#rut").val('');
+			$("#rut").attr('placeholder','RUT Inválido. Reintente.')
+			$("#rut").parent().removeClass('has-success').addClass('has-error');
+		},
+		on_success: function(){
+			$("#rut").parent().removeClass('has-error').addClass('has-success');
+		}
 	});
 </script>
