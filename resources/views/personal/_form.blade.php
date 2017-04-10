@@ -22,7 +22,7 @@
 <div class="form-group">
 	<label class="control-label col-md-1">Correo</label>
 	<div class="col-md-5">
-		<input type="email" name="correo" placeholder="Correo" class="form-control">
+		{!! Form::email('correo', null, ['placeholder' => 'Correo', 'class' => 'form-control']) !!}
 	</div>
 	<label class="control-label col-md-1">Cargo</label>
 	<div class="col-md-5">
