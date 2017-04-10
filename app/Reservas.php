@@ -31,6 +31,6 @@ class Reservas extends Model
     }
 
     public function Motivo(){
-    	return $this->belongsTo("App\Motivo");
+    	return $this->belongsTo("App\Motivo")->withTrashed();
     }
 }
