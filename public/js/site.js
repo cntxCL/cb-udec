@@ -53,8 +53,8 @@ $( document ).ready(function() {
 
 	$('#calendar').fullCalendar({
 		locale: 'es',
-	    fistDay : 1,
-	    header: {
+		fistDay : 1,
+		header: {
 			left: 'prev,next today',
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay,listWeek'

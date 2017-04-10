@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-	<!--
-	This is a starter template page. Use this page to start your new project from
-	scratch. This page gets rid of all links and provides the needed markup only.
-	-->
 	<html>
 	<head>
 		<meta charset="UTF-8">
@@ -28,7 +24,40 @@
 				page. However, you can choose any other skin. Make sure you
 				apply the skin class to the body tag so the changes take effect.
 		-->
-		<link href="{{ asset("/admin-lte/dist/css/skins/skin-green.min.css")}}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset("/admin-lte/dist/css/skins/skin-green.css")}}" rel="stylesheet" type="text/css" />
+
+		<!-- SCRIPTS -->
+		<!-- REQUIRED JS SCRIPTS -->
+
+		<!-- jQuery 2.1.3 -->
+		<script src="{{ asset("/admin-lte/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
+		<script src="{{ asset("/js/jquery.rut.js") }}"></script>
+
+		<!-- Bootstrap 3.3.2 JS -->
+		<script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}"></script>
+		<!-- Datatables -->
+		<script src="{{ asset("/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
+		<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+		<!-- Datepicker -->
+		<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
+		<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
+		<!-- Select2 -->
+		<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
+
+		<!-- AdminLTE App -->
+		<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
+
+		<!-- fullCalendar -->
+		<script src="{{ asset("/admin-lte/plugins/fullcalendar/moment.js") }}"></script>
+		<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.js") }}"></script>
+		<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.locales.js") }}"></script>
+
+		<!-- Optionally, you can add Slimscroll and FastClick plugins.
+				Both of these plugins are recommended to enhance the
+				user experience -->
+		<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
+		<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
+		<script src="{{ asset("/js/site.js") }}"></script>
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,16 +94,6 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li class="header">Notificaciones</li>
-{{-- 								<li>
-									<!-- Inner Menu: contains the notifications -->
-									<ul class="menu">
-										<li><!-- start notification -->
-											<a href="#">
-												<i class="fa fa-users text-aqua"></i> Sin notificaciones
-											</a>
-										</li><!-- end notification -->
-									</ul>
-								</li> --}}
 								<li class="footer"><a href="#">Ver todo</a></li>
 							</ul>
 						</li>
@@ -175,10 +194,10 @@
 				<h1>
 					@yield('title')
 				</h1>
-{{-- 				<ol class="breadcrumb">
+ 			<!-- <ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 					<li class="active">Here</li>
-				</ol> --}}
+				</ol> -->
 			</section>
 
 			<!-- Main content -->
@@ -221,37 +240,5 @@
 		</footer>
 
 	</div><!-- ./wrapper -->
-
-	<!-- REQUIRED JS SCRIPTS -->
-
-	<!-- jQuery 2.1.3 -->
-	<script src="{{ asset("/admin-lte/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
-
-	<!-- Bootstrap 3.3.2 JS -->
-	<script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}"></script>
-	<!-- Datatables -->
-	<script src="{{ asset("/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
-	<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
-	<!-- Datepicker -->
-	<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
-	<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
-	<!-- Select2 -->
-	<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
-
-	<!-- AdminLTE App -->
-	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
-
-	<!-- fullCalendar -->
-	<script src="{{ asset("/admin-lte/plugins/fullcalendar/moment.js") }}"></script>
-	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.js") }}"></script>
-	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.locales.js") }}"></script>
-
-	<!-- Optionally, you can add Slimscroll and FastClick plugins.
-			Both of these plugins are recommended to enhance the
-			user experience -->
-	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
-	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
-
-	<script src="{{ asset("/js/site.js") }}"></script>
 	</body>
 </html>

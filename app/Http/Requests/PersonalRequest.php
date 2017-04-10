@@ -25,11 +25,11 @@ class PersonalRequest extends FormRequest
     {
         return [
             "rut" => "string|max:12",
-            "nombre" => "string|max:100",
-            "apellido" => "string|max:100",
+            "nombre" => "alpha_spaces|max:100",
+            "apellido" => "alpha_spaces|max:100",
             "cargo" => "string|max:100",
-            "cargo" => "string|max:100",
-            "telefono" => "sometimes|digits_between:9,11"
+            "telefono" => "sometimes|digits_between:9,11",
+            "correo" => "email"
         ];
     }
 }

@@ -12,7 +12,7 @@
 <div class="form-group">
 	<label class="control-label col-md-1">RUT</label>
 	<div class="col-md-5">
-        {!! Form::text('rut', null, ['placeholder' => 'RUT', 'class' => 'form-control', 'maxlength' => 12]) !!}
+        {!! Form::text('rut', null, ['id' => 'rut', 'placeholder' => "RUT", 'class' => "form-control", "maxlength" => 12]) !!}
 	</div>
 	<label class="control-label col-md-1">Teléfono</label>
 	<div class="col-md-5">
@@ -22,7 +22,7 @@
 <div class="form-group">
 	<label class="control-label col-md-1">Correo</label>
 	<div class="col-md-5">
-		{!! Form::text('correo', null, ['placeholder' => 'Correo', 'class' => 'form-control']) !!}
+		<input type="email" name="correo" placeholder="Correo" class="form-control">
 	</div>
 	<label class="control-label col-md-1">Cargo</label>
 	<div class="col-md-5">
@@ -49,3 +49,11 @@
 		<a href="/personal" class="btn btn-danger pull-right">Cancelar</a>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$("#rut").rut({
+		formatOn: 'keyup',
+		minimumLength: 2, // validar largo mínimo; default: 2
+		validateOn: 'change' // si no se quiere validar, pasar null
+	});
+</script>
