@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css")}}">
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
 			 folder instead of downloading all of them to reduce the load. -->
-	<link href="{{ asset("/admin-lte/dist/css/skins/skin-green.min.css")}}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset("/admin-lte/dist/css/skins/skin-green.css")}}" rel="stylesheet" type="text/css" />
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +37,7 @@
 		<nav class="navbar navbar-static-top">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="/" class="navbar-brand"><b>CB</b>UdeC</a>
+					<a href="/" class="navbar-brand"><img src="/cb_udec.png" alt="CBUdeC" height="25"></a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
 						<i class="fa fa-bars"></i>
 					</button>
