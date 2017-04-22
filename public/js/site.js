@@ -20,7 +20,9 @@ $( document ).ready(function() {
 		weekStart: '1'
 	});
 
-	$(".select2").select2();
+	$(".select2").select2({
+		language: 'es'
+	});
 
 	// PERSONAL
 	$("#cargos").select2({
@@ -163,6 +165,6 @@ $( document ).ready(function() {
 	$("#btnEliminarReserva").click(function(){
 		$("#deleteFlag").val("1");
 		$("#formEditReserva").submit();
-	})
+	});
 
 });

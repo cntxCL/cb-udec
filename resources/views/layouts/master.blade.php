@@ -2,7 +2,7 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Intranet CBUdeC</title>
+		<title>CBUdeC | @yield('title')</title>
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<!-- Bootstrap 3.3.2 -->
 		<link href="{{ asset("/admin-lte/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
@@ -43,7 +43,7 @@
 		<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
 		<!-- Select2 -->
 		<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
-
+		<script src="{{ asset("/admin-lte/plugins/select2/i18n/es.js") }}"></script>
 		<!-- AdminLTE App -->
 		<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
 
