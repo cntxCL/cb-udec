@@ -28,9 +28,54 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<style type="text/css">
+	.select2{
+		min-width: 200px!important;
+	}
+	</style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-green layout-top-nav">
+
+<div class="modal fade" tabindex="-1" role="dialog" id="createReserva">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Creación de Reserva</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					 <div class="form-group">
+						<label class="control-label col-md-3">Sala:</label>
+						<p class="form-control-static col-md-9" id="reservaSala"></p>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Inicio:</label>
+						<p class="form-control-static col-md-9" id="reservaStart"></p>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Término:</label>
+						<p class="form-control-static col-md-9" id="reservaEnd"></p>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Motivo:</label>
+						{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaMotivo"]) !!}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Responsable:</label>
+						{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaResponsable"]) !!}
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary" id="saveReservaBtn">Guardar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="wrapper">
 
 	<header class="main-header">
@@ -75,7 +120,7 @@
 								<label>Seleccione Sala:</label>  &nbsp;
 									<select class="form-control col-md-10 select2" id="selectSala">
 										@foreach($salas as $sala)
-										<option value="{{$sala->id}}">{{$sala->nombre}}</option>
+										<option value="{{$sala->id}}" data-maxTime={{$sala->max_tiempo_reserva}}>{{$sala->nombre}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -106,6 +151,7 @@
 	<!-- Bootstrap 3.3.6 -->
 	<script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/select2/i18n/es.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/moment.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.locales.js") }}"></script>
