@@ -46,3 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 composer.phar
+
+# Informacion del servidor
+server.info
