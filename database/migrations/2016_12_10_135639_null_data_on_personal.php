@@ -14,7 +14,7 @@ class NullDataOnPersonal extends Migration
     public function up()
     {
         Schema::table('personal', function (Blueprint $table) {
-            $table->unsignedInteger('correo')->nullable()->change();
+            $table->string('correo', 254)->nullable()->change();
             $table->unsignedInteger('telefono')->nullable()->change();
         });
     }
@@ -27,8 +27,8 @@ class NullDataOnPersonal extends Migration
     public function down()
     {
         Schema::table('personal', function (Blueprint $table) {
-            $table->unsignedInteger('correo')->nullable(false)->change();
-            $table->unsignedInteger('telefono')->nullable(false)->change();
+            $table->string('correo', 254)->nullable(false)->change();
+            $table->string('telefono', 11)->nullable(false)->change();
         });
     }
 }

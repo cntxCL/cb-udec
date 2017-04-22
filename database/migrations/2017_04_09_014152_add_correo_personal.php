@@ -25,6 +25,8 @@ class AddCorreoPersonal extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('personal', function (Blueprint $table) {
+            $table->dropColumn('correo');
+        });
     }
 }

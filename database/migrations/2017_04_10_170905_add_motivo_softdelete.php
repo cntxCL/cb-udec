@@ -25,6 +25,8 @@ class AddMotivoSoftdelete extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('motivo', function (Blueprint $table) {
+           $table->dropSoftDeletes();
+        });
     }
 }
