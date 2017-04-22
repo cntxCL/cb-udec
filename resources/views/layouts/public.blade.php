@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/select2/select2.min.css") }}">
 	<!-- fullCalendar -->
 	<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.css") }}">
+	<!-- Datatables -->
+	<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.css")}}">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- Theme style -->
@@ -37,45 +39,6 @@
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-green layout-top-nav">
 
-<div class="modal fade" tabindex="-1" role="dialog" id="createReserva">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Creación de Reserva</h4>
-			</div>
-			<div class="modal-body">
-				<form class="form-horizontal">
-					 <div class="form-group">
-						<label class="control-label col-md-3">Sala:</label>
-						<p class="form-control-static col-md-9" id="reservaSala"></p>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Inicio:</label>
-						<p class="form-control-static col-md-9" id="reservaStart"></p>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Término:</label>
-						<p class="form-control-static col-md-9" id="reservaEnd"></p>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Motivo:</label>
-						{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaMotivo"]) !!}
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Responsable:</label>
-						{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaResponsable"]) !!}
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				<button type="button" class="btn btn-primary" id="saveReservaBtn">Guardar</button>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="wrapper">
 
 	<header class="main-header">
@@ -91,10 +54,10 @@
 				<!-- Navbar Right Menu -->
 				<div class="navbar-custom-menu">
 					<ul class="nav navbar-nav">
+						<li><a href="/public/personal">Listado Personal</a></li>
 						<li><a href="/login">Iniciar Sesión</a></li>
 					</ul>
 				</div>
-
 				<!-- /.navbar-custom-menu -->
 			</div>
 			<!-- /.container-fluid -->
@@ -106,30 +69,14 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Calendario de Reservas - Centro de Biotecnología UdeC
+					@yield('title')
 				</h1>
 			</section>
 
 			<!-- Main content -->
 			<section class="content">
-			<div class="box box-default">
-				<div class="box-body">
-					<div class="row">
-						<form class="col-md-12 form-inline">
-							<div class="form-group">
-								<label>Seleccione Sala:</label>  &nbsp;
-									<select class="form-control col-md-10 select2" id="selectSala">
-										@foreach($salas as $sala)
-										<option value="{{$sala->id}}" data-maxTime={{$sala->max_tiempo_reserva}}>{{$sala->nombre}}</option>
-										@endforeach
-									</select>
-								</div>
-							<button class="btn btn-primary" type="button" id="btnCargarReservas">Cargar Reservas</button>
-						</form>
-					</div>
-					<div id="calendar"></div>
-				</div>
-			</div>
+
+				@yield('content')
 				<!-- /.box -->
 			</section>
 			<!-- /.content -->
@@ -155,6 +102,13 @@
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/moment.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.locales.js") }}"></script>
-	<script src="{{ asset("/js/public.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
+	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
+	<script src="{{ asset("/js/site.js") }}"></script>
 </body>
 </html>
