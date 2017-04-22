@@ -16,6 +16,7 @@ class RootUser extends Seeder
             'nombre' => 'ROOT',
             'apellido' => '',
             'cargo' => '',
+            'correo' => 'root@test.cl',
         ]);
 
         DB::table('users')->insert([
