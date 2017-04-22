@@ -16,7 +16,7 @@ class HomeController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth', ['except' => 'reservas_public']);
+		$this->middleware('auth', ['except' => ['reservasPublic','listadoPersonal']]);
 	}
 
 	/**
@@ -29,11 +29,11 @@ class HomeController extends Controller
 		return view('index');
 	}
 
-	public function reservas_public()
+	public function reservasPublic()
 	{
-		$personal_list = \App\Personal::all();
+		$personal_list = Personal::all();
 		$salas = Salas::all();
-		$motivos_list = \App\Motivo::all();
+		$motivos_list = Motivo::all();
 		$personal = [];
 		$motivos = [];
 		foreach ($personal_list as $persona) {
@@ -42,6 +42,12 @@ class HomeController extends Controller
 		foreach ($motivos_list as $motivo) {
 			$motivos[$motivo->id] = $motivo->descripcion;
 		}
-		return view('public', compact('salas','motivos','personal'));
+		return view('public.reservas', compact('salas','motivos','personal'));
+	}
+
+	public function listadoPersonal()
+	{
+		$items = Personal::all();
+		return view('public.personal',compact('items'));
 	}
 }
