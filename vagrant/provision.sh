@@ -33,7 +33,7 @@ a2enmod rewrite
 systemctl restart apache2
 
 # Si .env no existe, copia .env.example en .env
-if [ -f /vagrant/.env.example ]; then cp /vagrant/.env.example /vagrant/.env; fi
+if [ -f /vagrant/.env.example ] && [ ! -f /vagrant/.env ]; then cp /vagrant/.env.example /vagrant/.env; fi
 
 # Cambia el directorio a la carpeta del proyecto en cada login
 printf "\ncd /vagrant" >> /home/vagrant/.profile
