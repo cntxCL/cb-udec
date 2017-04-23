@@ -14,13 +14,12 @@ class EditInoutTables extends Migration
     public function up()
     {
         Schema::table('ingresos', function (Blueprint $table) {
-            $table->datetime('fecha')->change();;
+            $table->datetime('fecha')->change();
         });
-        
+
         Schema::table('salidas', function (Blueprint $table) {
-            $table->datetime('fecha')->change();;
+            $table->datetime('fecha')->change();
         });
-            
     }
 
     /**
@@ -30,6 +29,12 @@ class EditInoutTables extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('ingresos', function (Blueprint $table) {
+            $table->date('fecha')->change();
+        });
+
+        Schema::table('salidas', function (Blueprint $table) {
+            $table->date('fecha')->change();
+        });
     }
 }

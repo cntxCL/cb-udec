@@ -26,7 +26,7 @@ class DeleteCorreoFromPersonal extends Migration
     public function down()
     {
         Schema::table('personal', function (Blueprint $table) {
-            $table->unsignedInteger('correo')->nullable();
+            $table->string('correo', 254)->nullable();
         });
     }
 }

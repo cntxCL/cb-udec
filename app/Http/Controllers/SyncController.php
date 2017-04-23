@@ -9,7 +9,15 @@ use App\Salida;
 
 class SyncController extends ApiController
 {
-    //
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function addPersonal(Request $request)
     {

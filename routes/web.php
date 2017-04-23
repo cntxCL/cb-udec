@@ -12,7 +12,7 @@
 */
 
 Route::get("/","HomeController@index");
-Route::get("/public","HomeController@reservas_public");
+Route::get("/public","HomeController@reservasPublic");
 Route::resource("personal", "PersonalController");
 Route::get('personal/{id}/contratos',"PersonalController@getContratos");
 Route::get('personal/{id}/inout',"PersonalController@getInOut");
@@ -32,3 +32,4 @@ Route::post("sync/delete/personal", "SyncController@deletePersonal");
 Route::post("sync/inout/personal", "SyncController@inoutPersonal");
 Route::get("json/cargos", "PersonalController@getCargos");
 Route::get("sala/{id}/reservas", "SalaController@getReservas");
+Route::get("public/personal","HomeController@listadoPersonal");

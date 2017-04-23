@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/select2/select2.min.css") }}">
 	<!-- fullCalendar -->
 	<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.css") }}">
+	<!-- Datatables -->
+	<link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.css")}}">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- Theme style -->
@@ -28,9 +30,15 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<style type="text/css">
+	.select2{
+		min-width: 200px!important;
+	}
+	</style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-green layout-top-nav">
+
 <div class="wrapper">
 
 	<header class="main-header">
@@ -46,10 +54,10 @@
 				<!-- Navbar Right Menu -->
 				<div class="navbar-custom-menu">
 					<ul class="nav navbar-nav">
+						<li><a href="/public/personal">Listado Personal</a></li>
 						<li><a href="/login">Iniciar Sesión</a></li>
 					</ul>
 				</div>
-
 				<!-- /.navbar-custom-menu -->
 			</div>
 			<!-- /.container-fluid -->
@@ -61,30 +69,14 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Calendario de Reservas - Centro de Biotecnología UdeC
+					@yield('title')
 				</h1>
 			</section>
 
 			<!-- Main content -->
 			<section class="content">
-			<div class="box box-default">
-				<div class="box-body">
-					<div class="row">
-						<form class="col-md-12 form-inline">
-							<div class="form-group">
-								<label>Seleccione Sala:</label>  &nbsp;
-									<select class="form-control col-md-10 select2" id="selectSala">
-										@foreach($salas as $sala)
-										<option value="{{$sala->id}}">{{$sala->nombre}}</option>
-										@endforeach
-									</select>
-								</div>
-							<button class="btn btn-primary" type="button" id="btnCargarReservas">Cargar Reservas</button>
-						</form>
-					</div>
-					<div id="calendar"></div>
-				</div>
-			</div>
+
+				@yield('content')
 				<!-- /.box -->
 			</section>
 			<!-- /.content -->
@@ -106,9 +98,17 @@
 	<!-- Bootstrap 3.3.6 -->
 	<script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/select2/select2.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/select2/i18n/es.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/moment.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.min.js") }}"></script>
 	<script src="{{ asset("/admin-lte/plugins/fullcalendar/fullcalendar.locales.js") }}"></script>
-	<script src="{{ asset("/js/public.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datepicker/bootstrap-datepicker.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.es.js") }}"></script>
+	<script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/fastclick/fastclick.js") }}"></script>
+	<script src="{{ asset("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
+	<script src="{{ asset("/js/site.js") }}"></script>
 </body>
 </html>

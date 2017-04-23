@@ -9,16 +9,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('log')->only(['store', 'update', 'destroy']);
-        $this->middleware('auth', ['except' => ['reservas_public','getReservas']]);
-    }
+	/**
+	 * Instantiate a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('log')->only(['store', 'update', 'destroy']);
+	}
 }
