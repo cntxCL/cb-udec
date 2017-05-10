@@ -33,4 +33,7 @@ class Contrato extends Model
     public function Personal(){
     	return $this->belongsTo("App\Personal");
     }
+    public function Labs(){
+        return $this->belongsTo("App\Labs");
+    }
 }
