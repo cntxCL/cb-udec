@@ -173,6 +173,7 @@
 							<li><a href="/motivos"><span><i class="fa fa-list"></i> Motivos</span></a></li>
 						</ul>
 					</li>
+					<li><a href="/labs"><span><i class="fa fa-flask"></i> Laboratorios</span></a></li>
 					<!--
 					<li class="treeview">
 						<a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
