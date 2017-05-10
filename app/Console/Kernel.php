@@ -4,6 +4,13 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
+use Carbon\Carbon;
+use App\Mail\ContratoNotification;
+use App\Contrato;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +31,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function(){
+            $now = Carbon::now()->addDays(7);
+            $activeContracts = Contrato::where('fin', $now->format("Y-m-d"))->get();
+            foreach ($activeContracts as $key => $value)
+                Mail::to(env('ADMIN_MAIL', 'cntxcl@gmail.com'))->send(new ContratoNotification($value));
+        })->daily();
     }
 
     /**
