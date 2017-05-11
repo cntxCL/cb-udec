@@ -24,6 +24,7 @@
 						<th>ID</th>
 						<th>Inicio</th>
 						<th>Fin</th>
+						<th>Laboratorio</th>
 						<th>Proyecto</th>
 						<th>Responsable</th>
 						<th>Acciones</th>
@@ -35,6 +36,7 @@
 						<td>{{ $item->id }}</td>
 						<td>{{ $item->inicio->format('d/m/Y') }}</td>
 						<td>{{ $item->fin->format('d/m/Y') }}</td>
+						<td>{{ $item->laboratorio->nombre}}</td>
 						<td>{{ $item->proyecto->nombre }}</td>
 						<td>{{ $item->personal->nombre}} {{ $item->personal->apellido }} </td>
 						<td>

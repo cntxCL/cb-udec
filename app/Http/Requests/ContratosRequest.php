@@ -29,12 +29,14 @@ class ContratosRequest extends FormRequest
                 "fin" => "required|date_format:d/m/Y|after:inicio",
                 "personal_id" => "required|exists:personal,id",
                 "proyecto_id" => "required|exists:proyectos,id",
+                "laboratorio_id" => "required|exists:laboratorios,id",
             ],
             "PUT" => [
                 "inicio" => "required|date_format:d/m/Y",
                 "fin" => "required|date_format:d/m/Y|after:inicio",
                 "personal_id" => "required|exists:personal,id",
                 "proyecto_id" => "required|exists:proyectos,id",
+                "laboratorio_id" => "required|exists:laboratorios,id",
             ]
         ];
         return $rules[$this->method()];
