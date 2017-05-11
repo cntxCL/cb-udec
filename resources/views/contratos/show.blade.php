@@ -25,6 +25,10 @@
 						<td>{{ $item->proyecto->nombre }}</td>
 					</tr>
 					<tr>
+						<th>Laboratorio</th>
+						<td>{{ $item->laboratorio->nombre }}</td>
+					</tr>
+					<tr>
 						<th>Responsable</th>
 						<td>{{ $item->personal->nombre }} {{ $item->personal->apellido }}</td>
 					</tr>

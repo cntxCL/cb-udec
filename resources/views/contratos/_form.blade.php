@@ -34,6 +34,13 @@
 </div>
 
 <div class="form-group">
+	<label class="control-label col-md-1">Laboratorio</label>
+	<div class="col-md-11">
+		{!! Form::select('laboratorio_id', $labs, null, ['class' => 'form-control select2']) !!}
+	</div>
+</div>
+
+<div class="form-group">
 	<div class="col-md-12">
 		<button type="submit" class="btn btn-success">Guardar</button>
 		<a href="/proyectos" class="btn btn-danger pull-right">Cancelar</a>

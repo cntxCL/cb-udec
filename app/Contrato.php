@@ -12,7 +12,7 @@ class Contrato extends Model
         'fin',
     ];
 
-    protected $fillable = ["inicio", "fin", "proyecto_id", "personal_id"];
+    protected $fillable = ["inicio", "fin", "proyecto_id", "personal_id", 'laboratorio_id'];
 
 
     public function setInicioAttribute($value)
@@ -33,7 +33,7 @@ class Contrato extends Model
     public function Personal(){
     	return $this->belongsTo("App\Personal");
     }
-    public function Labs(){
+    public function Laboratorio(){
         return $this->belongsTo("App\Labs");
     }
 }
