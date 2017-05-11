@@ -30,7 +30,7 @@
 					</tr>
 					<tr>
 						<th>Responsable</th>
-						<td>{{ $item->personal->nombre }} {{ $item->personal->apellido }}</td>
+						<td>{{ $item->personal->nombre_completo }}</td>
 					</tr>
 				</tbody>
 			</table>

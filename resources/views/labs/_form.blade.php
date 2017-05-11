@@ -1,7 +1,7 @@
 <div class="form-group">
 	<label class="control-label col-md-1">Nombre</label>
 	<div class="col-md-5">
-		{!! Form::text('nombre', null, ['placeholder' => 'Nombre de la sala', 'class' => 'form-control']) !!}
+		{!! Form::text('nombre', null, ['placeholder' => 'Nombre de laboratorio', 'class' => 'form-control']) !!}
 	</div>
 	<label class="control-label col-md-1">Jefe</label>
 	<div class="col-md-5">

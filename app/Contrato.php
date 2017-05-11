@@ -30,10 +30,13 @@ class Contrato extends Model
     	return $this->belongsTo("App\Proyecto");
     }
 
-    public function Personal(){
+    public function Personal()
+    {
     	return $this->belongsTo("App\Personal");
     }
-    public function Laboratorio(){
-        return $this->belongsTo("App\Labs");
+
+    public function laboratorio()
+    {
+        return $this->belongsTo("App\Lab");
     }
 }

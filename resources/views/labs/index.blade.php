@@ -26,7 +26,7 @@
 					<tr>
 						<td>{{ $item->id }}</td>
 						<td>{{ $item->nombre }}</td>
-						<td>{{ $item->jefe }}</td>
+						<td>{{ $item->jefe->nombre_completo }}</td>
 						<td>
 							<a href="{{ route('labs.show', [$item->id]) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span></a>
 							<a href="{{ route('labs.edit', [$item->id]) }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>

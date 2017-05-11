@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Lab;
 use App\Personal;
+use App\Http\Requests\LabRequest;
 
 class LabController extends Controller
 {
@@ -28,7 +29,7 @@ class LabController extends Controller
     {
         $personals = Personal::all();
         foreach ($personals as $persona) {
-            $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
+            $personal[$persona->id] = $persona->nombre_completo;
         }
         return view('labs.create',compact('personal'));
     }
@@ -39,9 +40,10 @@ class LabController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LabRequest $request)
     {
-        //
+        $item = Lab::create($request->all());
+        return redirect()->route("labs.show", [$item->id]);
     }
 
     /**
@@ -52,7 +54,8 @@ class LabController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Lab::findOrFail($id);
+        return view('labs.show',compact('item'));
     }
 
     /**
@@ -63,7 +66,12 @@ class LabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Lab::findOrFail($id);
+        $personals = Personal::all();
+        foreach ($personals as $persona) {
+            $personal[$persona->id] = $persona->nombre_completo;
+        }
+        return view('labs.edit',compact('personal','item'));
     }
 
     /**
@@ -73,9 +81,11 @@ class LabController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LabRequest $request, $id)
     {
-        //
+        $item = Lab::findOrFail($id);
+        $item->update($request->all());
+        return redirect()->route("labs.show", [$id]);
     }
 
     /**
@@ -86,6 +96,7 @@ class LabController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Lab::destroy($id);
+        return redirect()->route("labs.index");
     }
 }

@@ -36,9 +36,15 @@
 						<td>{{ $item->id }}</td>
 						<td>{{ $item->inicio->format('d/m/Y') }}</td>
 						<td>{{ $item->fin->format('d/m/Y') }}</td>
-						<td>{{ $item->laboratorio->nombre}}</td>
+						<td>
+							@if($item->laboratorio)
+							{{ $item->laboratorio->nombre}}
+							@else
+							--
+							@endif
+						</td>
 						<td>{{ $item->proyecto->nombre }}</td>
-						<td>{{ $item->personal->nombre}} {{ $item->personal->apellido }} </td>
+						<td>{{ $item->personal->nombre_completo }}</td>
 						<td>
 							<a href="{{ route('contratos.show', [$item->id]) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span></a>
 							<a href="{{ route('contratos.edit', [$item->id]) }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>

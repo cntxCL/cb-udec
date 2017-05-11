@@ -14,13 +14,20 @@ class Personal extends Model
     {
         return $this->hasMany('App\Contrato','personal_id');
     }
+
     public function entradas()
     {
         return $this->hasMany('App\Ingreso','personal_id')->orderBy('fecha','desc');
     }
+
     public function salidas()
     {
         return $this->hasMany('App\Salida','personal_id')->orderBy('fecha','desc');
+    }
+
+    public function getNombreCompletoAttribute()
+    {
+        return $this->nombre . " " . $this->apellido;
     }
 
 }

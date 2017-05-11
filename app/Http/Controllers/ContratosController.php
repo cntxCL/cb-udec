@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Contrato;
 use App\Proyecto;
 use App\Personal;
-use App\Labs;
+use App\Lab;
 use App\Http\Requests\ContratosRequest;
 
 class ContratosController extends Controller
@@ -45,9 +45,9 @@ class ContratosController extends Controller
         $proyectos = Proyecto::pluck('nombre','id');
         $personals = Personal::all();
         foreach ($personals as $persona) {
-            $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
+            $personal[$persona->id] = $persona->nombre_completo;
         }
-        $labs = Labs::pluck('nombre', 'id');
+        $labs = Lab::pluck('nombre', 'id');
         return view("contratos.create", compact('proyectos','personal','item', 'labs'));
     }
 
@@ -88,11 +88,11 @@ class ContratosController extends Controller
     public function edit($id)
     {
         $proyectos = Proyecto::pluck('nombre','id');
-        $labs = Labs::pluck('nombre', 'id');
+        $labs = Lab::pluck('nombre', 'id');
         $personals = Personal::all();
         $item = Contrato::find($id);
         foreach ($personals as $persona) {
-            $personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
+            $personal[$persona->id] = $persona->nombre_completo;
         }
         return view("contratos.edit", compact('proyectos','personal','item', 'labs'));
 

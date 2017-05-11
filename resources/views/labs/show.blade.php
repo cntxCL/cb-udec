@@ -16,11 +16,19 @@
 						<th width="1em">Nombre</th>
 						<td>{{ $item->nombre }}</td>
 						<th width="1em">Jefe</th>
-						<td>{{ $item->jefe }}</td>
+						<td>{{ $item->jefe->nombre_completo }}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
+	</div>
+</div>
+
+<div class="box box-widget">
+	<div class="box-header">
+		<h3 class="box-title">Contratos asociados</h3>			
+	</div>
+	<div class="box-body">
 		<div class="col-md-12 table-responsive">
 			<table class="table" id="data-table">
 				<thead>
