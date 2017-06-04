@@ -26,6 +26,7 @@ $( document ).ready(function() {
 
 	// PERSONAL
 	$("#cargos").select2({
+		language: 'es',
 		tags: true,
 		placeholder: 'Seleccione un ítem',
 		createSearchChoice: function(term, data) {

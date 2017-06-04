@@ -24,12 +24,13 @@ class PersonalRequest extends FormRequest
     public function rules()
     {
         return [
-            "rut" => "string|max:12|unique:personal,rut|regex:/^(\d{1,3}(\.?\d{3}){2})\-?([\dkK])$/",
-            "nombre" => "alpha_spaces|max:100",
-            "apellido" => "alpha_spaces|max:100",
+            "rut" => "required|string|max:12|regex:/^(\d{1,3}(\.?\d{3}){2})\-?([\dkK])$/|unique:personal,rut,".$this->segment(2),
+            "nombre" => "required|alpha_spaces|max:100",
+            "apellido" => "required|alpha_spaces|max:100",
             "cargo" => "string|max:100",
-            "telefono" => "sometimes|digits_between:9,11",
-            "correo" => "email"
+            "telefono" => "sometimes|numeric|digits_between:9,11",
+            "correo" => "email",
+            "cv" => "mimes:pdf,doc,docx"
         ];
     }
 }

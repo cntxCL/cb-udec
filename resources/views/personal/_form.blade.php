@@ -16,7 +16,7 @@
 	</div>
 	<label class="control-label col-md-1">Teléfono</label>
 	<div class="col-md-5">
-		{!! Form::number('telefono', null, ['placeholder' => 'Teléfono', 'class' => 'form-control']) !!}
+		{!! Form::text('telefono', null, ['placeholder' => 'Teléfono', 'class' => 'form-control']) !!}
 	</div>
 </div>
 <div class="form-group">
@@ -37,8 +37,9 @@
 
 <div class="form-group">
 	<label class="control-label col-md-1">Currículum</label>
-	<div class="col-md-10">
-		{!! Form::file('cv', null, ['class' => 'form-control','accept'=>'.pdf,.doc,.docx']) !!}
+	<div class="col-md-5">
+		<input type="file" name="cv" id="file-input" style="display:inline-block;">
+		<div class="btn btn-sm btn-default pull-right" id="btn-reset-file"><i class="fa fa-times"></i></div>
 	</div>
 	
 </div>
@@ -61,5 +62,11 @@
 		on_success: function(){
 			$("#rut").parent().removeClass('has-error').addClass('has-success');
 		}
+	});
+
+	$('#btn-reset-file').on('click', function(e) {
+		var $el = $('#file-input');
+		$el.wrap('<form>').closest('form').get(0).reset();
+		$el.unwrap();
 	});
 </script>

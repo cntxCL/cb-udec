@@ -35,7 +35,7 @@
 				</tbody>
 			</table>
 		</div>
-	<a href="/contratos" class="btn btn-default">Volver a Contratos</a>
+	<a href="/contratos" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Contratos</a>
 	</div>
 </div>
 

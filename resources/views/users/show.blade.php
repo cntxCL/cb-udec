@@ -49,7 +49,7 @@
 				</tbody>
 			</table>
 		</div>
-	<a href="/users" class="btn btn-default">Volver a Usuarios</a>
+	<a href="/users" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Usuarios</a>
 	</div>
 </div>
 

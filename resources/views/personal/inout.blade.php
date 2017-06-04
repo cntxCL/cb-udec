@@ -41,12 +41,12 @@
 			</table>
 		</div>
 		@else
-		<div class="alert alert-info">
-			<i class="icon fa fa-info"></i> No se encontraron Salidas ni Entradas registradas para esta persona.
+		<div class="alert alert-warning">
+			<i class="icon fa fa-warning"></i> No se encontraron entradas ni salidas registradas para esta persona.
 		</div>
 		@endif
-	<a href="/personal" class="btn btn-default">Volver a Personal</a>
-	<a href="/personal/{{ $personal->id }}/contratos" class="btn btn-default">Ver Contratos</a>
+		<a href="/personal" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Personal</a>
+		<a href="/personal/{{ $personal->id }}/contratos" class="btn btn-success"><i class="fa fa-files-o"></i>  &nbsp;Ver Contratos</a>
 	</div>
 </div>
 

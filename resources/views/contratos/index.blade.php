@@ -7,9 +7,9 @@
 <div class="box box-default">
 	<div class="box-header">
 		<h1 class="box-title">Listado de Contratos
-		 @if (isset($personal))
-		 	de {{ $personal->nombre.' '.$personal->apellido }} 
-		 @endif
+		@if (isset($personal))
+			de {{ $personal->nombre.' '.$personal->apellido }} 
+		@endif
 		</h1>
 	</div>
 	<div class="box-body">
@@ -55,6 +55,10 @@
 				</tbody>
 			</table>
 		</div>
+
+		@if (isset($personal))
+			<a href="/personal/{{$personal->id}}"><div class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Personal</div></a>
+		@endif
 	</div>
 </div>
 

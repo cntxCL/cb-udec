@@ -25,7 +25,7 @@
 				</tbody>
 			</table>
 		</div>
-	<a href="/salas" class="btn btn-default">Volver a Salas</a>
+	<a href="/salas" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Salas</a>
 	</div>
 </div>
 

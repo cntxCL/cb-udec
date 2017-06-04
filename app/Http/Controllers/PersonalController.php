@@ -50,8 +50,14 @@ class PersonalController extends Controller
 	 */
 	public function store(PersonalRequest $request)
 	{
-		if($request["telefono"]=="")
+		if(!$request->cargo) {
+			$request["cargo"] = '';
+		}
+
+		if($request->telefono == '') {
 			$request["telefono"] = null;
+		}
+
 		if ($request->hasFile('cv')) {
 			$file = $request->file('cv');
 			$nombre = $file->getClientOriginalName();
@@ -106,8 +112,15 @@ class PersonalController extends Controller
 		try
 		{
 			$personal = Personal::findOrFail($id);
-			if($request["telefono"]=="")
+			
+			if(!$request->cargo) {
+				$request["cargo"] = '';
+			}
+
+			if($request->telefono == '') {
 				$request["telefono"] = null;
+			}
+
 			if ($request->hasFile('cv')) {
 				$file = $request->file('cv');
 				$nombre = $file->getClientOriginalName();

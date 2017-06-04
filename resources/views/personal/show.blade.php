@@ -31,15 +31,15 @@
 					@if ($item->cv_id!=null)
 					<tr>
 						<th>CV</th>
-						<td><a href="/archivos/{{ $item->cv_id }}">Descargar</a></td>
+						<td><a href="/archivos/{{ $item->cv_id }}"><i class="fa fa-download"></i> Descargar</a></td>
 					</tr>
 					@endif
 				</tbody>
 			</table>
 		</div>
-	<a href="/personal" class="btn btn-default">Volver a Personal</a>
-	<a href="/personal/{{ $item->id }}/contratos" class="btn btn-default">Ver Contratos</a>
-	<a href="/personal/{{ $item->id }}/inout" class="btn btn-default">Ver Movimiento</a>
+	<a href="/personal" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Personal</a>
+	<a href="/personal/{{ $item->id }}/contratos" class="btn btn-success"><i class="fa fa-files-o"></i>  &nbsp;Ver Contratos</a>
+	<a href="/personal/{{ $item->id }}/inout" class="btn btn-primary"><i class="fa fa-exchange"></i>  &nbsp;Ver Movimientos</a>
 	</div>
 </div>
 

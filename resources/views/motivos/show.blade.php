@@ -19,7 +19,7 @@
 				</tbody>
 			</table>
 		</div>
-	<a href="/motivos" class="btn btn-default">Volver a Motivos</a>
+	<a href="/motivos" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Motivos</a>
 	</div>
 </div>
 

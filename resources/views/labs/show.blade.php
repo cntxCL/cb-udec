@@ -56,7 +56,7 @@
 				@endforeach
 			</table>
 		</div>
-		<a href="/labs" class="btn btn-default">Volver a Laboratorios</a>
+		<a href="/labs" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Laboratorios</a>
 	</div>
 </div>
 

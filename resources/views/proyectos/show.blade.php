@@ -23,7 +23,7 @@
 				</tbody>
 			</table>
 		</div>
-	<a href="/proyectos" class="btn btn-default">Volver a Proyectos</a>
+	<a href="/proyectos" class="btn btn-default"><i class="fa fa-arrow-left"></i>  &nbsp;Volver a Proyectos</a>
 	</div>
 </div>
 
