@@ -27,7 +27,7 @@ class ReservasRequest extends FormRequest
             "POST" => [
                 "inicio" => "required|date_format:d/m/Y H:i",
                 "fin" => "required|date_format:d/m/Y H:i|after:inicio",
-                "personal_id" => "required|exists:personal,id",
+                "responsable" => "required|email",
                 "sala_id" => "required|exists:salas,id",
                 "motivo_id" => "required|exists:motivo,id"
             ],

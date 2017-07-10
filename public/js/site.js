@@ -66,7 +66,7 @@ $( document ).ready(function() {
 		minTime : '08:00',
 		maxTime : '21:00',
 		slotLabelInterval : '01:00',
-		slotLabelFormat: 'HH:mm', 
+		slotLabelFormat: 'HH:mm',
 		selectable : true,
 		eventLimit: 1,
 		selectOverlap : false,
@@ -100,7 +100,7 @@ $( document ).ready(function() {
 			var windowDet = window.open("reservas/" + calEvent.id + "/edit", "_blank");
 			windowDet.onunload = function(e){
 				if(e.URL != "about:blank"){
-					$("#btnCargarReservas").click();	
+					$("#btnCargarReservas").click();
 				}
 			}
 			return false;
@@ -114,7 +114,7 @@ $( document ).ready(function() {
 		var reservaData = {
 			inicio : $("#reservaStart").text(),
 			fin : $("#reservaEnd").text(),
-			personal_id : $("#reservaResponsable").val(),
+			responsable : $("#reservaResponsable").val(),
 			sala_id : selectedSalaId,
 			motivo_id: $("#reservaMotivo").val(),
 			aceptado : 0
@@ -125,7 +125,7 @@ $( document ).ready(function() {
 			}else{
 				$("#calendar").fullCalendar('renderEvent', {
 					id : response.content.id,
-					title : response.content.personal + "\n " + response.content.motivo ,
+					title : response.content.responsable + "\n " + response.content.motivo ,
 					start : moment(response.content.inicio, 'DD/MM/YYYY HH:mm'),
 					end : moment(response.content.fin, 'DD/MM/YYYY HH:mm'),
 					backgroundColor : "#7e8490"
@@ -141,14 +141,14 @@ $( document ).ready(function() {
 		$("#calendar").show();
 		selectedSalaId = $("#selectSala").val();
 		maxBlocksAllowed = $("#selectSala :selected").data("maxtime");
-		//ajax para pedir reservas y cargarlas al 
+		//ajax para pedir reservas y cargarlas al
 		$("#calendar").fullCalendar('removeEvents');
 		$.get("sala/" + selectedSalaId + "/reservas", function(data){
 			var events = []
 			for(var index in data.content){
 				events.push({
 					id : data.content[index].id,
-					title : data.content[index].personal + "\n " + data.content[index].motivo,
+					title : data.content[index].responsable + "\n " + data.content[index].motivo,
 					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
 					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss'),
 					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#7e8490"

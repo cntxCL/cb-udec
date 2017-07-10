@@ -20,18 +20,13 @@ class ReservaController extends Controller
 
 	public function index()
 	{
-		$personal_list = \App\Personal::all();
 		$salas_list = \App\Salas::all();
 		$motivos_list = \App\Motivo::all();
-		$personal = [];
 		$motivos = [];
-		foreach ($personal_list as $persona) {
-			$personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
-		}
 		foreach ($motivos_list as $motivo) {
 			$motivos[$motivo->id] = $motivo->descripcion;
 		}
-		return view("reservas.index")->with(['personal'=>$personal, 'salas' => $salas_list, 'motivos' => $motivos]);
+		return view("reservas.index")->with(['salas' => $salas_list, 'motivos' => $motivos]);
 	}
 
 
@@ -42,14 +37,14 @@ class ReservaController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(ReservasRequest $request)
-	{   
+	{
 		try{
 			$reserva = Reservas::create($request->all());
 			$reserva->save();
 			$reservaResponse = [
 				"inicio" => $reserva->inicio->format("d/m/Y H:i"),
 				"fin" => $reserva->fin->format("d/m/Y H:i"),
-				"personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+				"responsable" => $reserva->responsable,
 				"motivo" => $reserva->motivo->descripcion,
 				"id" => $reserva->id
 			];

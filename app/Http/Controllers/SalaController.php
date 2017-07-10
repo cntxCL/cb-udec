@@ -16,7 +16,7 @@ class SalaController extends Controller
     {
         $this->middleware('auth', ['except' => 'getReservas']);
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -106,7 +106,7 @@ class SalaController extends Controller
                 $reservasResponse[] = [
                     "inicio" => $reserva->inicio,
                     "fin" => $reserva->fin,
-                    "personal" => $reserva->personal->nombre . " " . $reserva->personal->apellido,
+                    "responsable" => $reserva->responsable,
                     "motivo" => $reserva->motivo->descripcion,
                     "id" => $reserva->id,
                     "aceptado" => $reserva->aceptado

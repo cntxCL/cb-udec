@@ -12,7 +12,7 @@
 		{!! Form::model($item, ['route' => ['reservas.update', $item->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'formEditReserva']) !!}
             <input type="hidden" id="acceptFlag" name="acceptFlag" value="0">
             <input type="hidden" id="deleteFlag" name="deleteFlag" value="0">
-       		
+
             <table class="table table-striped">
                 <tbody>
                     <tr>
@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <th>Responsable</th>
-                        <td>{{$item->personal->nombre . " " . $item->personal->apellido}}</td>
+                        <td>{{$item->responsable}}</td>
                     </tr>
                 </tbody>
             </table>

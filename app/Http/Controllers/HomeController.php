@@ -31,18 +31,13 @@ class HomeController extends Controller
 
 	public function reservasPublic()
 	{
-		$personal_list = Personal::all();
 		$salas = Salas::all();
 		$motivos_list = Motivo::all();
-		$personal = [];
 		$motivos = [];
-		foreach ($personal_list as $persona) {
-			$personal[$persona->id] = $persona->nombre . " " . $persona->apellido;
-		}
 		foreach ($motivos_list as $motivo) {
 			$motivos[$motivo->id] = $motivo->descripcion;
 		}
-		return view('public.reservas', compact('salas','motivos','personal'));
+		return view('public.reservas', compact('salas','motivos'));
 	}
 
 	public function listadoPersonal()

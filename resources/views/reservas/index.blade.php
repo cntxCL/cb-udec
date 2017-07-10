@@ -36,7 +36,7 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Responsable:</label>
-						{!! Form::select('personal_id', $personal, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaResponsable"]) !!}
+						{!! Form::text('responsable', null, ['class' => 'form-control col-md-9', 'id' => "reservaResponsable"]) !!}
 					</div>
 				</form>
 			</div>
