@@ -18,6 +18,7 @@ class PersonalController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->middleware('log')->only(['store', 'update', 'destroy']);
 	}
 
 	/**
@@ -112,7 +113,7 @@ class PersonalController extends Controller
 		try
 		{
 			$personal = Personal::findOrFail($id);
-			
+
 			if(!$request->cargo) {
 				$request["cargo"] = '';
 			}

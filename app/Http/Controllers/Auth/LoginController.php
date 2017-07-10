@@ -35,5 +35,6 @@ class LoginController extends ApiController
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+		$this->middleware('log');
     }
 }

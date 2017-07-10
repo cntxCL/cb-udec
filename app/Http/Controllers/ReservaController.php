@@ -16,6 +16,7 @@ class ReservaController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth', ['except' => 'store']);
+		$this->middleware('log')->only(['store', 'update', 'destroy']);
 	}
 
 	public function index()

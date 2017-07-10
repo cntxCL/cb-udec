@@ -15,6 +15,7 @@ class ProyectoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+		$this->middleware('log')->only(['store', 'update', 'destroy']);
     }
 
     /**
