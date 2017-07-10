@@ -151,7 +151,7 @@ $( document ).ready(function() {
 					title : data.content[index].responsable + "\n " + data.content[index].motivo,
 					start : moment(data.content[index].inicio, 'YYYY/MM/DD HH:mm:ss'),
 					end : moment(data.content[index].fin, 'YYYY/MM/DD HH:mm:ss'),
-					backgroundColor : data.content[index].aceptado ? "#00a65a" : "#7e8490"
+					backgroundColor : data.content[index].aceptado == 1 ? "#00a65a" : "#7e8490"
 				});
 			}
 			$("#calendar").fullCalendar('addEventSource', events);
