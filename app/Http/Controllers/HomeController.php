@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Salas;
 use App\Motivo;
 use App\Personal;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -45,4 +46,16 @@ class HomeController extends Controller
 		$items = Personal::all();
 		return view('public.personal',compact('items'));
 	}
+
+    public function viewedNotifications(Request $request)
+    {
+        $user = User::find(\Auth::user()->id);
+        // $user = User::find($request->get('user_id'));
+        foreach ($user->notifications_unreaded as $notification) {
+            $notification->viewed = 1;
+            $notification->save();
+        }
+        return response()->json(['status' => 'success', 'message' => 'Notificaciones vistas']);
+    }
+
 }

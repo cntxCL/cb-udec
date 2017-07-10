@@ -19,24 +19,28 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					 <div class="form-group">
-						<label class="control-label col-md-3">Sala:</label>
-						<p class="form-control-static col-md-9" id="reservaSala"></p>
+						<label class="control-label col-sm-3">Sala:</label>
+						<p class="form-control-static col-sm-9" id="reservaSala"></p>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3">Inicio:</label>
-						<p class="form-control-static col-md-9" id="reservaStart"></p>
+						<label class="control-label col-sm-3">Inicio:</label>
+						<p class="form-control-static col-sm-9" id="reservaStart"></p>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3">Termino:</label>
-						<p class="form-control-static col-md-9" id="reservaEnd"></p>
+						<label class="control-label col-sm-3">Termino:</label>
+						<p class="form-control-static col-sm-9" id="reservaEnd"></p>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3">Motivo:</label>
-						{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-md-9 select2', 'id' => "reservaMotivo"]) !!}
+						<label class="control-label col-sm-3">Motivo:</label>
+						<div class="col-sm-9">
+							{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control select2', 'id' => "reservaMotivo"]) !!}
+						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3">Responsable:</label>
-						{!! Form::text('responsable', null, ['class' => 'form-control col-md-9', 'id' => "reservaResponsable"]) !!}
+						<label class="control-label col-sm-3">Correo Responsable:</label>
+						<div class="col-sm-9">
+							{!! Form::text('responsable', null, ['class' => 'form-control', 'id' => "reservaResponsable", 'placeholder' => 'Correo electrónico']) !!}
+						</div>
 					</div>
 				</form>
 			</div>

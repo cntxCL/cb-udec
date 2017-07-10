@@ -3,6 +3,29 @@ $( document ).ready(function() {
 	var selectedSalaId = -1;
 	var maxBlocksAllowed = 0;
 
+
+	// NOTIFICACIONES
+
+	// $.ajaxSetup({
+	// 	headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+	// });
+
+	$("#btn-notif").on('click',function(){
+		$.ajax({
+			type:"get",
+			url:"/viewed-notifications",
+			dataType:"json",
+			// data:{ "user_id" : "{{Auth::user()->id}}" },
+			success:function(response) {
+				$("#label-notif").hide();
+			},
+			error:function(response) {
+				alert("Error.");
+			},
+		});
+	});
+
+	// DATATABLES
 	$('#data-table').DataTable({
 		"paging": true,
 		"ordering": true,
@@ -119,6 +142,7 @@ $( document ).ready(function() {
 			motivo_id: $("#reservaMotivo").val(),
 			aceptado : 0
 		}
+		
 		$.post("/reservas", reservaData, function(response){
 			if(!response.flag){
 				alert(respose.content);
@@ -132,6 +156,8 @@ $( document ).ready(function() {
 				});
 			}
 		}).fail(function(response){
+			// console.log(response);
+			// var msg = "Error guardando reserva, intente nuevamente. " + response.responsable;
 			alert("Error guardando reserva, intente nuevamente");
 		});
 		$("#createReserva").modal('hide');

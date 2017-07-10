@@ -87,14 +87,27 @@
 					<ul class="nav navbar-nav">
 						<!-- Notifications Menu -->
 						<li class="dropdown notifications-menu">
-							<!-- Menu toggle button -->
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<a id="btn-notif" href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<i class="fa fa-bell-o"></i>
-								<span class="label label-warning"></span>
+								@if (count(Auth::user()->notifications_unreaded) > 0)
+								<span id="label-notif" class="label label-warning">{{count(Auth::user()->notifications_unreaded)}}</span>
+								@endif
 							</a>
 							<ul class="dropdown-menu">
-								<li class="header">Notificaciones</li>
-								<li class="footer"><a href="#">Ver todo</a></li>
+								<li class="header">Tiene {{count(Auth::user()->notifications_unreaded)}} notificaciones nuevas</li>
+								<li>
+									<!-- inner menu: contains the actual data -->
+									<ul class="menu">
+										@foreach (Auth::user()->notifications as $notification)
+										<li>
+											<a href="{{$notification->slug}}">
+												<i class="fa {{ ($notification->viewed)? 'fa-check text-success' : 'fa-asterisk text-yellow' }} "></i> {{$notification->text}}
+											</a>
+										</li>
+										@endforeach
+									</ul>
+								</li>
+								<!-- <li class="footer"><a href="/mis-notificaciones">Ver Todas</a></li> -->
 							</ul>
 						</li>
 

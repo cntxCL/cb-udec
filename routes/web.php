@@ -34,3 +34,4 @@ Route::post("sync/inout/personal", "SyncController@inoutPersonal");
 Route::get("json/cargos", "PersonalController@getCargos");
 Route::get("sala/{id}/reservas", "SalaController@getReservas");
 Route::get("public/personal","HomeController@listadoPersonal");
+Route::get('viewed-notifications', 'HomeController@viewedNotifications');

@@ -37,4 +37,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Log');
     }
 
+    public function notifications_unreaded()
+    {
+        return $this->hasMany('App\Notification')->where('viewed','=',0);
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification')->orderBy('created_at', 'desc')->limit(20);
+    }
+
 }
