@@ -50,11 +50,18 @@ class ReservaController extends Controller
 				"motivo" => $reserva->motivo->descripcion,
 				"id" => $reserva->id
 			];
-			Notification::create([
-				'text' => 'Se ha creado una nueva reserva N°' . $reserva->id ,
-				'slug' => '/reservas/' . $reserva->id . '/edit',
-				'user_id' => \Auth::user()->id
-			]);
+
+            $users = \App\User::where('tipo', 1)->where('activo', true)->get();
+
+            foreach ($users as $user)
+            {
+                Notification::create([
+                    'text' => 'Se ha creado una nueva reserva N°' . $reserva->id ,
+                    'text' => 'Hay una nueva reserva, de ' . $reserva->responsable,
+                    'slug' => '/reservas/' . $reserva->id . '/edit',
+                    'user_id' => $user->id
+                ]);
+            }
 
 			return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservaResponse]);
 		}
