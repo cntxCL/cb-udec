@@ -32,9 +32,7 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3">Motivo:</label>
-						<div class="col-sm-9">
-							{!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control select2', 'id' => "reservaMotivo"]) !!}
-						</div>
+                        {!! Form::select('motivo_id', $motivos, null, ['class' => 'form-control col-sm-9 select2', 'id' => "reservaMotivo"]) !!}
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3">Correo Responsable:</label>
