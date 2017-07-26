@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use \App\Reservas;
 use App\Http\Requests\ReservasRequest;
 use App\Notification;
+use App\Mail\CrearReservaMail;
+use App\Mail\ActivarReservaMail;
 
 class ReservaController extends Controller
 {
@@ -61,6 +64,7 @@ class ReservaController extends Controller
                     'slug' => '/reservas/' . $reserva->id . '/edit',
                     'user_id' => $user->id
                 ]);
+                Mail::to($user->email)->send(new CrearReservaMail($reserva));
             }
 
 			return response()->json(['flag'=>true, 'titulo'=>'Todo Bien', 'content'=> $reservaResponse]);
@@ -83,6 +87,9 @@ class ReservaController extends Controller
 			if($request->acceptFlag){
 				$reserva->aceptado = true;
 				$reserva->save();
+				$users = \App\User::where('tipo', 1)->where('activo', true)->get();
+	            foreach ($users as $user)
+	                Mail::to($user->email)->send(new ActivarReservaMail($reserva));
 			}
 			return view("reservas.edit", ['item' => $reserva]);
 		}catch(ModelNotFoundException $e)
