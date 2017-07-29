@@ -89,7 +89,7 @@ class ReservaController extends Controller
 				$reserva->save();
 				$users = \App\User::where('tipo', 1)->where('activo', true)->get();
 	            foreach ($users as $user)
-	                Mail::to($reserva->responsable)->send(new ActivarReservaMail($reserva));
+	                Mail::to($user->email)->send(new ActivarReservaMail($reserva));
 	            Mail::to($reserva->responsable)->send(new ActivarReservaMail($reserva));
 			}
 			return view("reservas.edit", ['item' => $reserva]);
