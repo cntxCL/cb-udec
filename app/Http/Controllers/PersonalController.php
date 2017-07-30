@@ -193,6 +193,7 @@ class PersonalController extends Controller
 			]);
 		}
 	}
+	
 	public function getInOut($id){
 		try {
 			$personal = Personal::findOrFail($id);

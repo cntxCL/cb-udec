@@ -92,22 +92,22 @@ class ReservaController extends Controller
 	                Mail::to($user->email)->send(new ActivarReservaMail($reserva));
 	            Mail::to($reserva->responsable)->send(new ActivarReservaMail($reserva));
 			}
-			return view("reservas.edit", ['item' => $reserva]);
+			return redirect('reservas');
 		}catch(ModelNotFoundException $e)
 		{
 			Session::flash([
 				"title" => "Reserva no encontrada",
-				"message" => "No hemos encontrado la reserva seleccionado",
+				"message" => "No hemos encontrado la reserva seleccionada",
 				"alert" => "danger"
 			]);
 		}
+
 	}
 
 	public function edit($id)
 	{
 		$reserva = Reservas::find($id);
 		return view("reservas.edit")->withItem($reserva);
-
 	}
 
 
